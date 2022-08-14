@@ -1,0 +1,5 @@
+
+> cpaas-webrtc-gateway@0.0.1 auto:e2e
+> jest --config=automation/e2e/jest.e2e.config.js
+
+📦 reporter is created on: /home/nehama/WebstormProjects/webrtc-gateway/automation/e2e/reports/wbrtcgw_e2e_report.html

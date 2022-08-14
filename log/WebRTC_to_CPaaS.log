@@ -1,0 +1,380 @@
+[2022-06-07T13:41:00.695] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T13:41:00.698] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T13:41:03.398] [DEBUG] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiI0OTZlZmRmYy01N2MwLTRlNDUtYTBmNC1jYWRkZWE5Y2JlNTkiLCJldmVudF9pZCI6IjUwYzAzY2M3LWZkMzYtNGQ1Ni1hZTJlLThhZjMyZTNiODQ4MCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1OTg0NjIsImV4cCI6MTY1NDYwMjA2MiwiaWF0IjoxNjU0NTk4NDYyLCJqdGkiOiIxY2NiNWZkYS0zMjQ1LTQ1YTQtOGYyOS1lMDViMmEzY2YxZjAiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.FSDQX-OblTDaq_aGFcpwMDR8TCjPN2wAM-lyBicZkap_vbjAsAs5cFZ30Fzffi7Q631MbEwKYrDbsZF0Y91Gc_-UzKD4s4bvOpEfSoMSBy9vMf4tGVNPPlG99f_s88uktVFh68kO-7oC-el5jwQ-ZH9tYSNv_QNLVOgiuJkQ8S2QZdlgL6asCKgQnfxDldQ3xPAXzITM77xMaUhAySAKl-3JeIpNTT7MQU32_JYIINire7L_agcLuzorUxfjYkKBnx2dXYECHNCnbQHIuluVU8WpHtcOURnYG6jKW7vyr23XwwJQeolspTHr6-rsjnHwfyu7m9quAZr-J7AR98pDZQ","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiNDk2ZWZkZmMtNTdjMC00ZTQ1LWEwZjQtY2FkZGVhOWNiZTU5IiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNTBjMDNjYzctZmQzNi00ZDU2LWFlMmUtOGFmMzJlM2I4NDgwIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1OTg0NjIsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAyMDYyLCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTk4NDYyLCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjFiNzdiMDk1LThmODQtNDA2ZS04YmUwLTJkNjQ3ZDhiNWU2ZSIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.mn-AuVQ7h1m200fO19Pd-VX4GvadSnZ3mk_jdNJhoUvtdPP7mm3KlrMUcq4RgTOKIf_hqKyxT7P3OqJz4p9liZKlCuJ3gDIEHq0P_Bo4RiNlIWeLlzaHGHrDxoA5wk1EKATOh1WoDYUwvZrG00Yn37ePeKUN9i-j27jMDxatP5Y-z4yRJHBW7fPUMS8RqNCXiMAUi7PfidH8ChL5dFc8CvIMNLI0BYWwnD5Y9OvXc1a7mLfG_cLdTJBVHTAx9QlQ5DT1Q18ZFO68873LcVDLLEaC-Q0flHaofu8SDstUMca2vg-8YfWMph5FMOgi7Mn8MUWSPFPUsobfxLq6IchgRw","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.bwJ4BYtG37d1YSL8rZJ2FXPpkrA3qn_qllPF_nTeX_E-FRqPMrCoNzyy8ApRIUFbPdvj_XR7NRCpm6Jfb1zjCihveqsywL12H67gOHU3Yw2-nOocnJ2Ubx49w2FYuPHm7WWHshI1U0h5TMG4t1sOTqrJXiftZsxjtd5Tkdsf0HExO1pu25yiM0OvHTh5zQ9CtwgggcVHMfcQySCs6lXQKYKB9b-UesGTKKvgAEgPtE_v9Jf9rOdFSUBoNhjTqlco5aORRkmuhEm10HtY0_JiVpdj0bbpE2Fwm9Qtb2RXIAQIbTWcjI-eYSKHSlmlsdQEtpRdEZ2vJLfmDFRyiFwOHQ.7UjOxsESBg4HCnxL.C_y3gV9HLyPcDMzs9zwVbjNxTpyVxIoihpVbKNWHAoBE_0_sw851CLdumhtj13b9TfcSZry_kbcEwvoWMBaBiZd2bDygsY1g-zyHXbZr3Pv_K_YeAvvK_sjDFpLBaJC3oEoP8KfGJIiWbUj5CzSauH038dfM_nggjHHgmk45UTjy_ERoRbM6g-JUh0mdM7zqgw0zjRVVcKAFaaTYzDB7MU5xg3jZDvR9Ipf2qBUmAkzXlK9mK0NG98ReEVjvSun7r1TEJ2nO-KPR1lA3uMUhPAlEKbJUEfnpNlBKLCYVqAcwLyp-wz-FBR2M7i9f7XAEQ8DW5alN2Swr2TEwi35E_iFbyR3rtEWsHrNeFQx5Fcpd1cY2dsFrVC6YAwZC5SzWVubb37gNvLopRIhbXNk467X9eGnN6n7mX7RkKAYNVczmFPNBs7SFzNA2V8gbLawGAZ5RgJ2buWI5ECsP5zvQKb9vNBDnM7X8k3wGNcwpkQTk4L76J-5W7e4fWEtsGyXkOt1GMXKC9i-JR4kSDLHu_zu0eP8FfhmvQ7zDf_Qr_z_qTr0o9JCJcg3wJeOOFJeVpUjNwRBBg08st8M4aow9eeNVTfdQYsnxG4Mbfi8i-08tadSQhh_XnXLVX7SYTvvih7XOkYkUIq8E_WRU0vOJs6L6QAwRQMyI27g-ZbfstbLnZLW2c4V5Mcz0fXk-DsXymMXfZ0jRZ1V8FCJVx-xSfiRHjBuFZwxAjmT8WwnRJWkPXqOr1APcFixf_U20psKkSGP8-5MDpd49fFy2CQ06FzY5HcgZ3c0i0hR5Uz0PH2rdz9c2KRlFLEXDR77LlZqO4SmEfv8ALxrh2xEhFN8cy-Ph-9RvTBRu4nNRiPf0X8avtEHW59xnvp7Iixl7IAiW98lYtP-HNcKuO3vY-CWCiR48Q33QW7C1pW8Z1qItT_7FSseV-ZwOATtss_UJAZG7FIwc2ESOeN27UJ-ZWTJE5uSxk4TLvES_RqlecdpoeDRA8UPBToREugbG-apjM6hQ7HzFHaXBWdkkc_TYX-IneTFwbwvrETrZHgaC_2nK7oZanPT5fCUOupv7hYcAVW_qJfFpYv9DARML-CjDXNuFQI0RSt_n86i9qQ_xotwufMoLVwAZhb7rvN-LDOzRAi6ZpGSpzZWsMbbsrHuYgsBa3dPlLcfBRKhOSCqAzyHegn65KiSetNPxtzOyKwSBoUtokYHnBiJCdjZxPZAMUN2UGu7fIyRBqPq6GhjehNY02D_Oc6JNCYXhKryhrghYrtH-WxmKfG1S-hMZL_mclgPPOTsn8NNTSKT-mK4zZ1sHMSOEEcPe1sfzjIb3.fGko5bAguPCRiLh8YsRqsw"}'
+}
+[2022-06-07T13:41:03.400] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T13:41:04.152] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-07T13:41:04.155] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16545984641541260","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654598464154,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"1654598464154642","PNSToken":"a2093438-6e34-4a7f-87dc-a99cf6a410cd","deviceType":"ANDROID"}}'
+}
+[2022-06-07T13:41:04.162] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-07T13:41:04.335] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16545984641541260","messageId":"1","action":"Register"}'
+}
+[2022-06-07T13:41:04.556] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16545984641541260","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598464400,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:41:04.565] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16545984641541260","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598464400,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:42:42.390] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T13:42:42.393] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T13:42:44.838] [DEBUG] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiIzMjA0NDk4OS1jNGVlLTQ0M2QtOGI1Yy1mNTBkZWU5MjhkMDciLCJldmVudF9pZCI6IjI3M2ZlNzFmLWY4YTUtNDNjMy05YTE0LTc3YjJjOTgwMjEzMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1OTg1NjQsImV4cCI6MTY1NDYwMjE2NCwiaWF0IjoxNjU0NTk4NTY0LCJqdGkiOiJhMDEzODU2Zi05ODVkLTQwNWMtYjJjMS0yNjU0MzY0ZmY3YzkiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.hfWyH4U8MoQxh6LXPVksedg_2p86ck-cI-DmOuf62xqElsFNqTw_hcV42b7p57okc-UHkklV-ogUjOflIax6H0mPo8x5kwoh_xxrXIfQVTCgZ48U5VujuFwSsz3hQ5Emmzf8mUrcQepwsKkLtnT9GhNd6-vB5GqeEajCO9nVCJbMEC8rbg-bzg0UO-IihG0ADZPiymHm7kK5c7e9RFcyHmCLGp7OMfL6g_9Iuc-Kho8JETIOGheShAkH4QHs-6hRtM47_OokC3Fz_iAPG-UWqk0_Dbe7W3IsBh3_ZTuSpoEe-6cZ5rDld4qpW3BMLJEIhjCi2A3D98Bt_61ed1govQ","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiMzIwNDQ5ODktYzRlZS00NDNkLThiNWMtZjUwZGVlOTI4ZDA3IiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiMjczZmU3MWYtZjhhNS00M2MzLTlhMTQtNzdiMmM5ODAyMTMyIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1OTg1NjQsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAyMTY0LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTk4NTY0LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjBiNGQ2Y2ViLWQ1YmMtNDE4Ny04YTBhLThkZmMzMTUzNzcwMyIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.MXCCCoadmTiZQzjQZBTK5PNYrWHkgj5CU3MTkNTSkTDeutpHFPjbBkz5cPKxo6la-TCSiryhMwlhjdiTH5Dt4NvW8a13Q15Dl3J8EAfobFDiXcqzrgmijbvFHwdcu_TqCs9li6fBuZ29ZTC8DioDrBj_OU4AL3Tux_rzAx-pZtpe6QFP7x6D2T0EV3deAVxOqj7ddYePg5w_mz3PudoSSXFYnTL3rs0GC80NXntm2qAJVuQ-ZZedflmraLM6pfKnfwyYEJMTHMvR6aG5Am5pZB5Pe1Q5tRpzUCT01Xq-ew6bq5qlfEGB2SOqAH-wufyK06qhkHvRvttqvWfGcBY4UQ","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.gQC0X55KxtkdOeDUtYaKb_Rrj_fLcqsbe16Y-72y51gdz3pK13bXMjWV_ABLQUxQCQuSFa6ZEzpstgIOdGdTaZT1FpD7uO5UDxwTBCgBKG8qAHJ8RMicBBlduDOQ574Xnh8qgV_6reOBaLpVJqL96Sx15YO9OqUI5IFOyt6OpR_EnQ1MRYlA04dJMG15ZOHUfKgb_FnhU-o6bLsndk7qDoYw_SwYwUPxGOdmhXNaEOPMiPF2s_jfe2bkZKkfbWedDNy8Y44zgSMKlGgU8erHpINnxGPIqMu_34xMuYvCxxO5_f5TGYAA5Y5wKrsi0IX3_QnXZaQ3rmGs3_egot73FQ.2AqR6L7K6ov9G6Fj.wlgya0-41lo0hFo91h8i4nww0GTRCnXQJB2qDXJ7J9dszsmyLvz5bLX1-06sHedtFCqhbb3o-1GN0UtVVbPbzyv7Id4gRwFiF_KOxr2JUUnLxrB48ISAIUjukJc4pfjY-OQCVJY1SVUlcqykZ3N-mbvcJiTuV1cZf7xt7zPwIJ2twy8PxaVIBnIx64-4_f2fxphsdQCVKxEN5iufA7lIQPzHwwxXkBaT4LWZqy9NuHncigcSwbWxsWslv2VoL8RzGB4VK7h80PNCyU2MwcQpm9G0MXnb2v4ZOH8kHSybV35DEXJfYsRw9RqbQ92iVis0Z4FdapqHhAb0yETjzULO9VuVZoPUecFayEiOCA5QTOtJvwMvopZwfWaI03PMff5EyQOPh_PmUqYmyEDl5HZ3XSSIx1Xa1oYeVdsYdgQy1dKX-LsKS6jdjtclkLm30rnKPzwXsvw_488IoTlpWIQdp1B_fnAqsoMwEz-E_cNVPosILTgF1JnSgmWhlOMJiQbaDVM3XeUc-AJEGPBsxbVHd9C39l3PnRIeUthx39Ca0J6DbvikEQaaT1e6YD_GHuiV37PMGos3wSDM_IUGl0oHVKSr2KP_iGgVoiUbkLSvFjxDgFJpqgsjm6t_oxSZDguzen3QDdqcFycOXSQS31PMDrBowg447GiDuHGmh9CJ6O3XQDhDhTLZkw_nlUulcWKHhG62vVGExVWWuVixqHd_2h5eOJqD_zENivyjO4Be9PTXvMxwy98gi2Ark7i9I-47OdSKht3GyzqDCYrvNZadj-83N_GbfrvaYr2ernye0rv94kchdIiNt_wVXPhwBpmaMsngv0tS9PkCMvSweyVmyRfv7Psh18yjDSl7iAmtE8gLCbhJaLegsHINXd1IjkGBCXyRD7-nLCj6LqXYyyFBtDB3YGm0EVGtOeJUyI7Wgdwo8vEzAcITg-OfAOuuM5rYtXyUNjQ9NpK0Am_i8n1ujAPfmHKJUhjTcpRZP2UhJ4fLZVEk6JJc4s4q0EF05Xe5jXl150Tnwka309XmgyoFlw62S-9TVFCL5FKUlNYbR1W4npSg07oyHqAX5b2BxOnxAFs_g6ZdPOHR_jkNiHsG0Kk0qlxNsR5e3TeLuPw7FaPWjm9874Dx6DbTgAxFbAQRcoywr1IswjkYA69AwnT3l-C_9eIsMDTTNECJdd3Pvd-xYg7gJQjOqCf9gcDpCfYzMUs2WbUP8AKIOtollUhgkVHM1wgUYqdhicBx0PbGgNWM5PCxBUBq19-uEF4mf7scTR8Brqhzb-Ka04viAyB7IwzbY_17OarUaEwK2HM6xBBNs70IYPO2uP8k.EnpYDVSBbbgEy8_W0HK-kQ"}'
+}
+[2022-06-07T13:42:44.839] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T13:42:45.459] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-07T13:42:45.462] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16545985654611387","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654598565462,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16545985654619322","PNSToken":"fc651485-ec8c-439d-93c3-7cffaa0e971d","deviceType":"ANDROID"}}'
+}
+[2022-06-07T13:42:45.469] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-07T13:42:45.637] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16545985654611387","messageId":"1","action":"Register"}'
+}
+[2022-06-07T13:42:45.799] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16545985654611387","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598565672,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:42:45.806] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16545985654611387","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598565672,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:44:47.553] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T13:44:47.556] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T13:44:49.996] [DEBUG] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiIxMTVhZjhmNy0xNTk0LTRhNmEtOWJlMC1jOTc4MWNiMjhlZGYiLCJldmVudF9pZCI6IjQwNmMwYzFlLTY5ZDUtNGIyZS04MzFhLWYxM2EwY2FiMjQ0NyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1OTg2ODksImV4cCI6MTY1NDYwMjI4OSwiaWF0IjoxNjU0NTk4Njg5LCJqdGkiOiI5ZTlmYTM2Mi01OWJmLTQ4MjEtYjE4OC1jYjc5N2VkNzllOWQiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.WoOn4ZRJePe_Mg1A0A5-aXvo4J5WG_s-jbq81zk6IFm0L19v-4r_Gq0INF1c_JaG_fmkY-bbb5aKdsXUzV2A9cV0brpNRY7sQ9r0Vv4F1-okGHqwf3ge9pAdInotVjNlx_mWOMmKvFkFj4UERMWwv_kl5qiiCkSmGgcpV12gnaQgCk8UNlkI0fIfG1b2d4UWyE2RV1WeyUu8YDTGmbvFsr0g9BKXMRUW5K_v4a6n2zi-FgkJQG9LINpccRLdXmtDC-HtrSGqhSGEtE1dgDzA3qyD6YDlY3QcDlDyUua6kaO1rRg8Zk57UXHZ0hIWlxpplFfaP305VhpAhkRuBi5W7A","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiMTE1YWY4ZjctMTU5NC00YTZhLTliZTAtYzk3ODFjYjI4ZWRmIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNDA2YzBjMWUtNjlkNS00YjJlLTgzMWEtZjEzYTBjYWIyNDQ3IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1OTg2ODksIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAyMjg5LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTk4Njg5LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6ImYxNGVhY2ZiLTZlYTUtNGY5Yi1hZjczLWNiZjMyODg3ZTMzYSIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.Fl5FapRxNbdBm6lDnFDHUDjyEdfhLMRHbgi5Gug3CyQRhd3Jsfq9nycog6kQnrsgGcsFGBRuViYidGexzkiLhNmLk4QH9ifiTD3laLw3Zkqh0veagNmvTRNBi9-qrDiR1KUJgqNpF8Nu9AChoe83RZSaxDVMLYbgrUh1hc10XrXQ2jP7NgD4gP40I9cL6OGXhkeSFl3hEGj-60IvGGxxYDBye84x7vUU9ulzYzteDsnuokOHiEqn5Eq4utrD4jKaz8waj1rsSPm65RqQL2ScQHV8wBtXa2NV9Xfh5JhiYLJTi5NYdSjdrF2968VX80i1UyERBhz28a6noLiUIqdvhg","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.ZGS3euXTyv3wX4D107xi1U_-IXfgw44PDpJhtcDOvveBbKLrH5vfUcRt6iuZX_tqzkU6-a50G1324P9ZRU28r-B-K7h-0Su14ZpWThSyq_ysatVFKJZBJfpSQvA2rHhPcYTHr5LYosP9OgePDehId_wT9xHTDMnuk54HwPeLxLack3teJdJ0gqtmg5yV--MLSXQqywLi9HjKzPDTR__nPK2hU7LesZAKZbvBm24tzxDPEBmSogK30wwkJeDoXHjAMgsaOysh949cw-LD0y65WqR9clwusS7fKTI9Xu0B6114m0y_SBNBxCFA0gZIs9ZleRj3HOIfSd6kuzzBTykarw.eg8k4N3DzEUihiwn.99KT6QIX_VC94XYPZZMAtv5zaMOlPUw1dvqvvPFUejv6TvgYnUnspISxtvjiwwFUo2BAAFl4eGD8bOW1s5ciLfT4JAeoWlH7vnRW8L8sjm3e-SWew5aGAVQKqiJkyiJ523rxqBZuLILNBP8wM-mRh085GJYtWSE4nSlpDSuw2WLpvwBM6nDKr7TlTLEX1H8ZKDL1qnFowcSTDl1Jc6mR0i4QulxHPtVo5Q289pYvqi0pfC_b8y9xEUPfsLatyQDD2bZBA5Qhc_SeVcj84Q9lVhUYFeWu5HtGo8cXRDmPfCwEDgd6c2-1oBbiFqILwJHRlHUqo1SHNVlWJvMLuTJHXShtsPwv2Atk5xEQx_Nk0Off8P-8P9ty2pTRTF-LvmUeqKtvzhgdBw50ZdzoTKFAzAoeZqsKOaaIyBe-2WcwZPgFH5jAC_8kAGHD1iln_LHq0o8Cesk1yB62L73_dFNaf48BjIslbJaAXB-SVQz59C0ahdllabq5lh5DSYH7VeisrAfiwsXJk4BVi2XCgmsicBdB2wMq2W97qgf9WHBxUbD55O-Cu1UnWd51MDKVLMqM4DhnvQyU0RwlwFg4DpLodLR_GDmfBOjQ8VSJ5oDZGb5pz3khRadOPujXlTrOrUsJF7iRFHIbY6pDEHcXW7OCNqLIyJ3O6EjAtHvb3HRJFn-BI0ViWMdC9k0eSmIiz9FWAQHw6kTlrnnaajVILxguU82xEbYrbTeXeTfEmEw-NwFbGIS4g6BvCMKHOLS_uPWa6oedX5WZzP9ToUevubpcwo13N_Gkmnd9OSo0GWRpLGEhUA6fRanp_JvqXV51ILkYVskG2N24ExqzgRF4r9IieJYkYLlKxs-wh-yXbAvtSMOiUaxdlYEKJIxTkb5JNt8TOB2k_1_tNK15iD7kDZOyxk51aZLBIARthi-oCz0AHX6RbR3cnjINGlK-S4oV7_D2yuCR5p7t1oaZg07ryPNYg-ZbIjzB858zxD7oDqXWZw9G1zUuH40LwqlJlWEz5avmJW_JSRibZKc5c_hsplfQg5erI665AUC2lBf1Ms7xJG8id9V9BROu8vgA0ku_VugaO4RLAzVNisoihRuOGU3BzjunaN1Uvm6NnebcBLWp_zdl5ruf8sC4DNeM04MBwg-uKkaEsezCHhDwwHpF-qRYYbdBBjH0B2CBrRl4fKMNJLQmBRClWeZ558siAYilUzM9p8L-GQCX17wWaerQ820pMaFapuMZQSC17n0cZbDVQdKIvTacXWen-8f5bBrj9T4TG4Nz1k_ifKTjevTJ4dANvUK95ZEPYhXdoAlg0WirDugxJhQnAJhJSaOD.oCfsRANYDpdB8ZpbrdHUeQ"}'
+}
+[2022-06-07T13:44:49.997] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T13:44:50.647] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-07T13:44:50.649] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"1654598690648423","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654598690649,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16545986906489074","PNSToken":"8a7bbe0b-16b5-442c-bac8-ce9bd4569003","deviceType":"ANDROID"}}'
+}
+[2022-06-07T13:44:50.654] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-07T13:44:50.829] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"1654598690648423","messageId":"1","action":"Register"}'
+}
+[2022-06-07T13:44:51.039] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"1654598690648423","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598690918,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:44:51.048] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"1654598690648423","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598690918,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:45:50.909] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T13:45:50.912] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T13:45:53.372] [DEBUG] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiJjNmZjNTVkNS1iOGJlLTQwNWMtOWU0Ny1kY2Q3M2NhOTQ5MDkiLCJldmVudF9pZCI6IjQzNjEzNWU5LWQ4YmItNDQyNS05NzViLTNlNDgwNTZiMDRkYiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1OTg3NTIsImV4cCI6MTY1NDYwMjM1MiwiaWF0IjoxNjU0NTk4NzUyLCJqdGkiOiJmOWIwY2Q0MC01YzM2LTQyOTYtYTRlYS1mNzg2NzVhOTk0ZTMiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.CaTuDSMwhspZmjsjz9Zd1Q3l0guiVeR5WzYTyzJgNgfFpIPLFfClFXn4cu1ONdXJT6hXBXsE_V_PMk0nwfBb2VatNp1X2lDLXklLYORWUib9hblwu3Ewnq-Vp8OGXwdvJbt4nFCv8GH3ZsZ_WkZVdorZRG1cjTmknJwjyUeSFkctSh-v4e7bTmd75iHHC0uiFnMulMAHfLDgLS7OKCzj4Op_bsG_zk98bqmvRTvXdMHuXlvynKA_vGRnuKf9_RrxDdxgVEWX8JBRvLJjLrrSXBf9IFWiXaOq9T2aCvP4zwCoUtcnngX8VcrW8uS-0DPAkvPijz-slS4ZFC2uOzICBg","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiYzZmYzU1ZDUtYjhiZS00MDVjLTllNDctZGNkNzNjYTk0OTA5IiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNDM2MTM1ZTktZDhiYi00NDI1LTk3NWItM2U0ODA1NmIwNGRiIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1OTg3NTIsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAyMzUyLCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTk4NzUyLCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6ImFiMjU4Y2U4LTQyMTAtNDdlZS04MWIxLTE1NjBmZjg4NTZiZCIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.VQFfVfZzA1GluXBWdlU_qx6teTrUjD3vj25F5g5Q0Vha605JX6niA26uqzbw9pM_F57AljFGEsydzTnpiI9WKMO94bHHzDcbUVhmIOOCqW0orKSBV4_gcPiyex9wVUfnf2uTCM5ECmHiJf-0gB_ls8JR8tHx3bngNjvEbG4Mltj3_mCe-tLAkkbelpe6agfa-CaJewyKPxmZv0AgqaVeuEsb-uIRB6Y7y6-fFJYFaTEgW802ZeElq7hfuIwClwoPSJU6ONsfspYFJFRYDYZzFocDdmRl98RIMo7FufKcwqY0gFs1DKwShwglE1eshi7dzGMBx_BuNx9dAvJBoY2jIw","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.fuevAd2QZnQxnCsq5Zs33xsHIRWhkY11xxcoD_JYCNhrTt5Qxq18IUHa9pBFIedfKa9lLSXJAi9W22I9BDaDuZoDNoPnz8a60yJGv4J2r84hFaHiAB4Pi_QypsUxnCcqB9vpyU0vOEJqOH1zTjaNawTsiFRYWLYrt5a-OCtAerGs5q0ZXRyT3Z0cLkkw_8c3XCfgTQvTTRFW18Cf88xlpTe8k8rwkTD6IJ1RSEs2fakrgkZHsXb270zp_vcsYkv95oDQaeOm1tZ51vrPC2g54i4qNTLHPb6D7jeAjpK_tuh-f1Bl2DTJMr6SeqwseRM9bvUHI2Xjl2cJOQL7dmkhHg.UofdFH0azWJOJMOr.BmoHAR00ojuvSVHw7hNTWXzZGFoOyWcKTc4AlrR4ziIU-ETdzrGgtJBug6YGREP3aCSgB-xcJtNHOEvMv7DjVi4wtBq1xCZkqNI4v8tV-JJ3mtDXeWhCpqdBJu90l1YM7HIikw1UcLv9ihWOpCmTTOznt7ERvbeJGBMHwkhSeTmTSEsXlyIETavPvEVa9VwUNVSwRCi7Py4BeiwW8h5fQ2xFizGYLgW8P2rYPV2Fuk6iRDWErbuuNXnAFQY1KtowT0dtIXdmYyBv0ToXzcXmMuXwl7B1xQPr2Wwg9-NavtP3mWF2JGARlGyYKCnFTXhqqFYXBSzLzOXgAZMX4uTv3CVzIJPEvVv0PoDSUySb9mabZjGY7ehdghZrXT2dRQVfWeBhnsE6YmkQbrSNizEP4JKaCjyHeNM9Ja5metznTtNwG0kn22hntbTxD8M1j9ASj5O9_m-XP7T983C1S_41h1oscM8qZRB0xOIN59bfAtQovELLDiz7c-h1H9ly4HTlmPq8U8lEDUyd54C0ba6r9Y5XInWQNA3gDKvu51AtK-RnBJux-vRc-_6NGiluJNpTF4WLuvnZhTgeqoKXTa2MT9MAT4t8A7LFDQKCljZngRlKKOZNt3icDvcPJQsB2cH0vbrScNWjKoOX4QTK88Ud73tU4GIfAHhR4af54fW8xbdQ_biA_2ZYs3unEPP4PUF7_bSz35WpUt-9WmEQtHr6vqyta1O4Q_VBZtHtGKhssUMQ6pAIZyZP0tZttq7m2DrJGkx3dnoXDx3F3bcYXoLHSKF0X8NCpO30ZRdVZuyLEnrYNzK75aEDP7tctyPhJuYAbgLqZ1Hjwzo3y6UHLkMO60w09BDDLNXqqenYxyCWRYc4QTKJeJTgsfF4MhuDbMRMQxG327N1Yx4T3lxRD0pviklyw9p5eKLgCLxwRkAdvy-6hbyEIbwbeS7WJJLTGfm_9sfXEyCEbPVRrIEZng2I5KKheRfIpC76gAptwv-JEDfkW7FZUQY9R1-DPeqB1o-wqXMi0MK1bpl0jNxEBI7BgOwCszb94jmJ-yoU62l1gg6HxihCfSzhqYOQXwjn-82nGRgdqcH1_gnU0B6Dfbzxo_34VkQWBtgjXcq7kWATrGtz0bWJItQXNa8twgFMs50H-UA4LH2nIwkA4faA59m_86AZJJxnp6r8GViMR-YZHUzJo3rxK9xsKHLvn1vj4c5iLq9CEeCOih8t3dZlXAR0mK57i2odEFKP61_1A1yjRQ-4LxiwM5rUthkMA5zkvGVXhiShBjpt9lTR1vh37A75VmeXNMXKlyhLjZ99E_fMJYGR3edTmR_7mssS.VYJuzvUkwy9IlL6cPywo6w"}'
+}
+[2022-06-07T13:45:53.373] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T13:45:54.044] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-07T13:45:54.047] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16545987540466510","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654598754046,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16545987540461307","PNSToken":"6969a018-2c91-428a-a948-a63c1d3a6208","deviceType":"ANDROID"}}'
+}
+[2022-06-07T13:45:54.052] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-07T13:45:54.240] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16545987540466510","messageId":"1","action":"Register"}'
+}
+[2022-06-07T13:45:54.377] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16545987540466510","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598754265,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T13:45:54.380] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16545987540466510","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654598754265,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T14:11:29.357] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T14:11:29.360] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T14:11:31.859] [DEBUG] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiJiMTY5OTJlZS1mNmRjLTRjNjUtODVkNS1kNTUyNTI4NTUzMDQiLCJldmVudF9pZCI6IjVlYmM3NmVhLTBlNjgtNDY5YS1hNTUzLTA2MTcwMWM4MjdhOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ2MDAyOTEsImV4cCI6MTY1NDYwMzg5MSwiaWF0IjoxNjU0NjAwMjkxLCJqdGkiOiJjYjY2Zjg3OC0wYTZhLTQwOWYtYTRmMi1jOWViY2ZiNDg5MGUiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.rUbNJWJW7FjkLkK8WHIdAS5ZM2waxbR-IFowDlKkaA9w_OFyDvADjdsXnJ75p6sESrHmCw3YpuSJTA4y5BwocgDUGdY59tFOseyU3JXgerZJhFXnhmRN5Nxvluc7T7de4v-SIMLe3YKr05w8IIFsZIRrFczUJ-KKJThRlhkri1W0VWeZsBq7XeIbIRU4ydFlpAwRPSUK3fGO4M3FPXJYqvuUITFsGtL57fzuGlQY4KT19tVd0lsUsbxzMDKNjI_bJoM8VA3iwJ8GcxI5xemRE1SyRZJuQpBcRlO1e9b1y7jXPc6RCMZ73KoyuzVsv5PTJc0BD6SjrSBBclrIV5aijQ","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiYjE2OTkyZWUtZjZkYy00YzY1LTg1ZDUtZDU1MjUyODU1MzA0IiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNWViYzc2ZWEtMGU2OC00NjlhLWE1NTMtMDYxNzAxYzgyN2E4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ2MDAyOTEsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAzODkxLCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NjAwMjkxLCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjNkMTQzYTFhLTNhNTUtNGFkMy1hMjUxLTk4NjFkZmRjNTFjNCIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.npGAmicv1jYHJFPs4hHIF_hhZIzMTiKIBdx8tTyT2gC4vfEWnok9GTGqN886DZcmGM2PeK-7qvxJ8Ig_y-4iHZOSnBh65I8bB5-WsEd8laQ7Lq9_cmjOaFyXFvEDZ05yX0jdxXrnQoSdZbDYLHfnjW0nWZdwSAYbfnmlmU4caEgleSEQ-qJDsgdXg7nQ6Tg2NySzmoDZ3UjX20AZxToEIqaNc-2bhBbxGPDgHmflBE-QLUhO8mcDwzdd20EhwCnf2bZ5ehsGmn1TZTFdLnMHeh-KQk5DEzBxOzR8nOuccCtmQv_jxWBhL6j0WnUD_rQOkC5tjX7w29TD8wj1XVbePQ","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.TzfxJR2eWYtBAMr4t_oOsXxDaVh0auPSaWsA1AJR9NVZ2j0qaGtB7pBEx9jFpcWWLzw5Q0nUwSvjevYZnScZmzMGLb7Aiveq1gnmsJNzLeLD_LSTS6aeFwww2BmP-b7zCoaYO00S8GNEn9a9ZkdTDYBc20QsJZbrCUhJsbsM7NtVobvW74OMuvtWaZh-9ABAY7Erq19Exq6kMI9BpE56pFatorcZI5WF3mW9KNniMBZcfzBWPf5nXMS71nXMPaLjKQfmrjqz_nth0XoxIe9XI8wFQqDSsC6mPN33AmU0LUuiVlpw-XvM8btz9TtO2vINX6rTf4sKffYFGGQG-VyHqw.X9mGKOeJ3mAHKGNL.zH677h-d4kiAN7PaT1Tdl7DPcIbe8qPQNT1gLx8nq5NxIkpL3zpoUBZwPJu4qyS68dtfMy8ouFFQlqEoyShT1fxWXwCUUhst40ItED9h1o4Dk9ET17W38GWOcGgomyZfxzfh6etD1_nn_YJtnZyxC47qOWgBM1mAn8UxIGW07Oq_iQEBYZHWJOsl9pRzyKJm3909cUatg1C2e8U8YAOanTaLyTtQ2hsmACEMjqCc1BE1COCEbaErjMgY7hzCREGc4IczGP5YuVAPKP8oroTx_55dRGchteFAa7oUJi56jmgo2uRA3CO7gIrtbWNeVpT9Ug5qRwtLK4yuuK9BvVjK9gjvBx4NZAVibRLzmeqvzLcOBIrugsvmOYy67HfNP_eRw5vonBpSSqjzbPJZQ7hO3_616TpDqk5GlxytRds2UAh0NK39Qom6B2w5Fp0IHTGNW9CQog0wkn0RfPn-63iiaJMiOgPbLUrFwuwMsWlkwRoN8ZRTdTAEwuX_jlqODt8gmsWQiN7p8-xHm3tw49PF0WVaiDatWXdmMGG9S3m2hacE8jC2Dd8sX_xAnbw-aC7ojj4jnKBqGzQwdmMsalKRSoWXkmv5jFKEZS1mwYkdd4WgjroRHCCaBhQMt39CEHQ8JDe_dl2Vrxi8b_H4oBNkdRDfpYBSTZ0art_eLlkSvAHlhwGW_Wrz_h7aySwz9q--dS4NndI0H6TsUKgDnA03gKopctlml9K9h-OVGxWPWBcjRAQvuAat_LPlJjng0rAfzT5g0y5kV7zVZyRE5fDdJMleXV-5m2R7W8PkEzLvj-dvMzrTKvbzrTrbidE-5KzZ9_FBqJIrAW2WcVePWpkfBNmME2vwDcamDiSyNsYEVeKcNb1su0MsjM21p3cphneGvM3zOsuZRekN0YohFcKgfrIx7tRBoDz_FGkOozbmzKcApJ-pG7o99qZakOPJ4K3qYEfwkGcM-3dr276uh12sW3BeLBRjlnUH7TOUblj6d0G9iClV_dgZBtQl8qnVPUiCSmGuddUT2iqe5pZk6vgomlrNEutvkJlrYTHN4zzz3T9gBWqD8itpez-u42ZRi_88xvgkCyA9yme4CzMHYP4XffHVWojjz4uA3v58D12JG-zuZtSkh2m1wxrbMTKMlXKB0FY4DHSPV8HsyIx9vgy0kTQNpgkSsNawkteGo0c-zECvs0uB226HGmkwCRns3KvS3USK94BK16M_GdEnxjhROYL1Nm-CvfE3DHyOUJWHSWOr_MSgodF0JoF8RsWz8pWyb8RQZNMsdk8AKh6U31RehBlUkjq8fKA-IDdTMV2qHCbqrdnFDJu-CeOz.S8w9Kq0BJZCZI5Vxho4wTQ"}'
+}
+[2022-06-07T14:11:31.860] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T14:12:15.111] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T14:12:15.114] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T14:12:17.435] [DEBUG] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiIyZDc0NDEwYS1jZTEzLTRkMGEtYjFmYy00MTZkYjQ2ZjBmNmIiLCJldmVudF9pZCI6ImRhMTgyMDVlLThjNTEtNDU0Zi05ZjI3LWI0OTU2YjAwN2ZjYyIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ2MDAzMzYsImV4cCI6MTY1NDYwMzkzNiwiaWF0IjoxNjU0NjAwMzM2LCJqdGkiOiI2Zjk2OGU0NC0wMmMwLTQwNDAtYWI0ZC0zZmM4Yzc4ZGUyODkiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.SAFI9lrFzj0jKkWLAtDIYt7ngQ6dHHRi8yMj0u_fzBfIaJfv51nAfxwWug4hhGlSUdrPmz9tq8q_XeuJB4u0_ZN5683qk6zgS1Jm6roJw-VPxELHw-GTEsrUbYyMjhuJ9dasjj0QoBBgvze46fAEpIP9bJHwxYTcmHBmZ8_rFq4euH1s-KvXbJkejA3BQIbLNC0APfI38exGbBR7CHk05JOzhyS5k-pdKM5U43IF-VWYPTMmQuTvSmRB9rITq5VB4VNN7ljDXK75oea-lAw1lRUTdBQIcFl-5ptqG6kT48nL7SNlIXs4ea9uhbTjoJO223oEbNNJffpZYQ4CceDnwQ","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiMmQ3NDQxMGEtY2UxMy00ZDBhLWIxZmMtNDE2ZGI0NmYwZjZiIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiZGExODIwNWUtOGM1MS00NTRmLTlmMjctYjQ5NTZiMDA3ZmNjIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ2MDAzMzYsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAzOTM2LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NjAwMzM2LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjcyNTM3YzgzLWIwYzItNDBlNi04MWI3LWFmNGUzODA2ZDhlNCIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.j73Bvj0xtkf5JUKdh1q9B4Nl2uCesn2VgPXWNFMCHlso-0cjyv575CATGryYKfup_iMgyoIiDLSR__broZ1RDIBJi1pWKzRCenfht2jVgstzcCx1mb074h_dnSUnkKl2fXSf6V1PUsg8nEPVPzDAmHnummMW0Wfpiy1bzpNUpdHEDee6V_CeldkqBT85GCdKRO2cZGHIVl9IbhsjCmVJy-1Pg56JLeYyIxOvdW5x2wR3byRZ-zf5YSyRO9NV3RMdWRJv3MTI50oc-5E7Pm8OVVbgPQkNiJr9u_zWlZ-Cj9Ng4i-otOr4FLsvFVsslKkjeGbwWMw5INyl4zCT9C4nNw","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.UfSz6TGrsB5bw06MZk97jjLVqNPfv4kZVDc2Tm3LXPvgKuYmfsNQIWy7bU6RxrPWjMa4dXTd2-BDD71g-wmdZ2i20THT7OsHKEk4uBXrJm15qlxBDxdR4t9m5D-0uLx8aOP2nNA4bEXD1tbVZ2eFPkte8aXCKgCVO0yFTkc1ai_wQlm47QhyxhMMzHoc2dnfmqGlazHx5EKSOJmlfdKzIuecmWS5u_08h6FP_kCDFUia2r_OOxzu04Y1BTnRQ5U6cuyaKz_e9x07dWqpvAZ54hY_tthyNSiMhCWEOyD-SP-WTQPoqRDqpjel3tjmeqzpNTluUnxzbeppokcz7aVt6Q.7G0jQr_-8_8EMsDz.ZQW9I1jZ-HSJq8YLxrg3keeFHCEHIhycampWTvwDpHDtm_IW0fLt-3QEJxFnG1JXmQi4ab5fpPRZH4olPUzSodMi77CRNh7eeaEYvD89iTyqpDWxez1FZOfs5xiHXVxa7Y77YBKuyAf-FbIkQiYL6973mS9jEliLCUwruJzOqSNAqWActCFQZM08u12IxJsbmN0thhH123rcFIrLSL5pc1OT4_mPhA0Mwep9ojAQSbC9R7BDixhhMaQ_zxSU5iUuzYVdibEL9V7q59wldzwcWTX9pVbitJ0O37-M8M7tbt9TTPrC446RMRZV8LOfkEiKV2iy2vY95ZD38yb8bKdew7IlWmKlkbNimx8jCx6Qs_TBw2LSMtWmBfAH-aQzisrcbHcATzzXj8UmeXAyuPN9qBK5gG1_siU-mttBhEFJbBMbkij0KsxGtVgei3Larxk2mT6DJulVggVjx87CzKSwmGAMxq18qfe_W65RjUylA8hO8iRIVpHG_j7Ck6d1TcbW6PAy_iI_4e7b6fiQbAiUSKLwQgn8N48jQpVmePrjnHBYgM5AmD1yNarO9iJ2m_CkQGy3M8uq6vtYZOZbTP-CGTW6lMpPY4G39rP7TPOEYgocV3wbUO-OKy1dBz8KY4aOCT_UrCkazYCLU4l7uouDHgEO8kyvD4DSC78wZLLIxIoydQUOL2t7pfDt0kXw33l46GC6D1eGfbLuxNDFMFD2FhOMt-LkhclC9GXMsLCvgrpcwOI-saugd84T7hduOWiB-mEnK-SdAocqOTmD56XNCekswsNm-ohrSz4sGBdvCDTPuvkbTL4w3LyUvHux6BgHl-dZyfsfcGP5GEBqi_WN9-M4SPN5BCUbySu9rzpnqjIZKIFVeBpfca1kEmHwcb05Et441IkWzBhMRdU8T-KbcgXThDzOkltXeMR9Kc02Hdk728kVJcmFkbxzIAPGQkiXnj1nBmY5BfZoXVWmxQkpS5A8vUuqo7wCtZk4JfAkpYdBFUZ9VJH7OjUup0ORVZS8gDF2qDAz1DT_SOGvSnuV5gyEYSpjxp7FuxX4e9nJ2H0zVOGP7gXZ2Mw3eP3Q44vbJA6w4QIE1peVTMoHj6Cf5DrsFsu6tXvAavKN_E7G3ijhZdARYtZuhNqaP9wvWqMt3RpywChGoNHJktGvRZgrryV41W8D7Ao1-Zsf6woR4ZdV1CqPpQ8U3fN8FIolnIyVpsat2cmT898H8IheWKjCqe-eoxfJ9uJZ9Wcn0N_f0Zkj74drH8qMDSP7sOPI36Hkass27aStZWeIJCfYtZSYePnfB-8Qi_83PZTCwClVR_LAE76rGR_ajqnc.Bjt7xjdDFr8neoYiRst4Yg"}'
+}
+[2022-06-07T14:12:17.437] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T14:13:02.634] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T14:13:02.637] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T14:13:05.130] [DEBUG] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiJmMjUwNTU0NS0zNDI0LTRiZTktOTJiNi1iNDFhMjEyZDMxOGUiLCJldmVudF9pZCI6ImY0NGRiYTk2LWFkNjEtNDYxZS1iZjU3LWJlZjllZWFjZWIzZCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ2MDAzODQsImV4cCI6MTY1NDYwMzk4NCwiaWF0IjoxNjU0NjAwMzg0LCJqdGkiOiIxMDlhOWE5Mi1jZTU5LTQxNzEtYWFhNi0yNGI0ZTY0NDI5YWMiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.hGTAZnNmZNokUtKeFeoQ8LOqg61lrZWoWV3sU3MyV2bM1_W5GZH_unqoHiWmdCWZ8TPL1UI_Q0wK56RHZQRtFdUwXG2tHyX__7_D7W0LbNvIXLt9yi51zeb8e8Mdlw1GPZS3aAsPwoV7gWiVnP5buEolkk8r79TEuFrMYfTCBKeg9sWqaQnNszKa7wLX2BrT9erFmyNhlr_wbydeVGEZhKKyWFWeE4tueE9cNdF02iYXCsgXvA5l2IQJhqMier6Kp8s1MMzWiPg-_j28z69z6O-Tt4vB7mvRYgBpJ0uO6-dIaDlUO4G3mt0hTzAOzoRQj3bXgnV_cb3tvo7eUFReWQ","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiZjI1MDU1NDUtMzQyNC00YmU5LTkyYjYtYjQxYTIxMmQzMThlIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiZjQ0ZGJhOTYtYWQ2MS00NjFlLWJmNTctYmVmOWVlYWNlYjNkIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ2MDAzODQsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjAzOTg0LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NjAwMzg0LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6ImVjOWU4ZmRmLTEzMTctNDY2NC05MTIxLWY2MjAyYjlmMGM3MSIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.CTErTc4hVpe-Gh_pVQjmSFEmlDfnBGgmEuIkmQebYsy0ybmC-GxO-vIe-1LZKXnOpvbiPHfr0o921NLeeWDT1Ua6MPLB2ofZCBHZ1YoMJdQBA491ZC2eO4w4AYajhjiqAwB2L4knkyA3QStaRQQZvANl-7_eVqJkO3VIaa_tPgXtxkqipa8qeXo1nAc1GUGSrkjo8hBYcKQIDQFBVFG0JRbjeJymV7IXaxDnYUblX0YAPjGzDsalOzR8QIGV_cZI1YZEgcZAwQab63HyXigvdoD_j0HX9JdfgrIf3Ckmi1oG8NQN5TioSmFv_RwFe-rwyjgH3ecMrP5Wq3zCdJrYCw","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.EINJavhPQakwvETBALiYyRpwKJRX9FzLbQf5Ad64B_5iftdnS3SH1KjYYziNXcrPrvYGJO181B4wHvfw95ABsmfA4pWN9gUp1wtyWRKeuQGdw2KrC2nsRlIwxb5tPiMAsWOXU4uvcitL-2muTm_pVWxf-3_jr0w-hCud5IgD2Z8p33Q9rB28-uLRG75jnielX6KJ0P3YYJ1wQHD6I43_uNHoL0pvD_xjsTw0z7Nvp0sjH_ylO-iEspDGgBp9W9K41KMEhq6ZFzEKJm2afYv6z8cgVxbonEN7wi5BTOlD8emUBFrvJdDrVsPEt-ohXJZ3EZYNAcMGivviK4tqG-PmLw.JitcxZeibHoIC2w-.MNocThk2qyxEe1cgBtBZCHxj8HyJepPUzwP9ykUyoWyM-KMkpp6jy_pftnlnH9uCo9tINnxxOxO-yttZIAemyL-DVIXTrN_LwTzzZTlntq2bxxIk3SkxvQDqyeogrHo8pUZWVv0CUpj9EyNbfbsfDf-944uVQAT4JAIQR9f7thhyeUP2nO90qc0XQwRp-KBa_JogivsfknliWmHU9X7EDwFITaAAj6ogzJQ3baENInFl6YmA4ScpSCn-_T21wUQ0TQs6_sariSVyCBzMp6O-Mm20zS1mw_-KQp-EP60Qml51RkXjz7qTdTQn-PI3wNDoYI0ON6w_3v9f8WsHiN_-Z4cEhldvDXeGGYhkAxYKivdUEGKrqRVmGPE_zXoHgQePmga1qCEly-h42p0JaIfxVXkFwppBPEafM-uzUT74z6S8kqR-GQT4Ob_zINya3GhNF4TYUwD0etSLhcfs-fh_dV53einBachuhukove4fwrUPja57zQihAPdss6bgM9VFs_CSfUz3-qSItSsNGnfcPXaY6dvsKuHlJZTMf4j-Yr9YP4Fx-TgoOPub6f9s5HVetnvfI31NJrRNunt5Nk0A2ArmxjMQuBIVUCeNbe8EmOrzi46Xbh1YHC2Oqk_5X0kMSRY71hxqaOK70c5b1XcyopqqbDjS91Un_PD4Rwbo6EeT3rXcx0gy90aOxpNpU4FS91RIrtBAo_go3rdnE7uiDnT7JEjvcoMFy2XgYMq1BH2Gp_EmM5OxiN20w_vqU5Fca3p5HLgN_nnhDWu7NORKh-zmopcXmcJTfdSx5SYnQGVJWPTrpD68vjaJFYw5DO3QXqckZrsZqBshH8hzrgP7x1i0pn9KwyNfCxnhVuLsgVjC7QoovaLCYxVtwNuGze4d9ifjpJaiKT2NB6yqnmK3bt_KssQuz204CUbOsjXzi7NeRtTpWf7ZIz27aMkLYioHhuJQ3-VPuUkEtur6ZbwuWnATf2dxAtCRIwamg-rSzm_JZdgIcNGfDzS37yhF4GTCeyK5dgv9oPXWHY9jHTkoEABINO6l6KEIYFGQUo_zfcZL1QtnCiUJJ0ibO1CMFtRwaPnv3_XehBrpbO3E6ywqOCTdIoMIkvLsyG4D11Z-4WcZ0OacqjvfDdUyJJEQo0KaCqlzpmqfk2ogt0ZXKMy8bToP--abYWN_o1iOmlwaqkOxH5wX33GSpEM4uCFjoQ781xw4EYM-fs29uVgM76wX_njzmg3rH9RXf2sLPHYLEynj0BHBUZF6mhthDRxgm1NzDn7Bdsx4MBZl6mygyYlCXjzzaIgZI2S_1T3Czn-BVHfii3Cp1miIvIoE.aQGm4lvldrtnoXtDUxIoOw"}'
+}
+[2022-06-07T14:13:05.131] [INFO] WebRTC to CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T14:29:17.872] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-dev.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-07T14:29:17.877] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-07T14:29:20.886] [DEBUG] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiIyZWExMTdjNy05MWUwLTQ0NjAtYmE4OC03MmU0ZTE4MmRkZWMiLCJldmVudF9pZCI6IjIzMWUzYjllLTdmNDYtNDBmOS1hZDJiLTU0Y2YyZmQxY2ZmMiIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ2MDEzNjAsImV4cCI6MTY1NDYwNDk1OSwiaWF0IjoxNjU0NjAxMzYwLCJqdGkiOiI0NGM5MzdmMC1iYWRmLTQwOWMtYmE4Yi01OGY3NmE4MDY0NjkiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.Zja9nUJmo9p9QP3R_LxY3rNR3F03c9GKZwQhu0QBt-t44nKUyvgeynO3VCzOQIObktagV4aDSsIalzCYUDPemmXjcpWdBPN2otROicwgIIuqmzDt-JvktoCElWtjGgmIkbbcFxGEDyrhS3vBlxwoEUTRyoVMtRzHckqKGcJQsm7MXYFBwPGwFx1LPpowgs-ApeJwsNlbGsIqAacxBLbPmzdEh-JVlzkznkZ4xTpvQrfaAGwhPiPw90qexhvui9-oKSbkMbsPUi0wzxq7yXM5v2QlNswUtmYFwvfFFI_GaxJZhhzwX6MQcHThUla6mDneTMc5Z-sDc7zm4mRMK-lHng","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiMmVhMTE3YzctOTFlMC00NDYwLWJhODgtNzJlNGUxODJkZGVjIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiMjMxZTNiOWUtN2Y0Ni00MGY5LWFkMmItNTRjZjJmZDFjZmYyIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ2MDEzNjAsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NjA0OTU5LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NjAxMzYwLCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjBlOGU3NGZkLTU0Y2MtNGQ1Zi1iMGYzLWYyMjQwMjZjMjIzYSIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.bmsmHtVE-xcbAzuETQ3-kFqsMR7BVO1s_c-VBNJ06qfETgOUDSWmILGYUH7yLrAHVhSxgE6AfxYeTjck0H8by2FqCq2KVhVZJxZdbfbgAh_qaZUPgKSd4_CAUMuEDFTx2bZZVLWszw_N1C9aE9fNY7iIRNFK_Tv2UVoTZJd4lijEQui_TNPdlCTb_s2LxX8o_MEx2zi-rLgKySQc6JPsqNx0l73GSSKKptdTJLlYrGyHfHhxRk_agI4d-0vhN93aRZOAXby2F0wBmSj_NiHSHvJcWHjSqJjTmYf_BBrxWOmsppIlXbJXMykDYwRma_RjFzDupbd9IL_DFVrfEewjOg","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.JYWRJzTvy5SOXoEHsrN_bcLEX000wHEMPh2idzvVXf0r3Tii6xizWBMyNT8PzYsbn7tJQu-dajKqaybnYv0RWyY2-mzqZTmr7gN-5mpkNP2pApy1-eoZUZM0bHt7Aq2IKkLMGVTXqtDeh8efZZKHPSeDP446XbS-wONHbOitCoBbIahAwclGLXVDL3DG1RdvliJEAPBrE7Z2tetwe-V6PzTjtc8eh-izwYJes2W7wp-O5Dpf2kawm1TsvMRQZMmO9OsIRQtPYWAMlRUKLq5AXdCD-PNQX4SufVKmBngkuQGDivefUKQzD9GecyP8wNzj0jVVBAit6jbZTKlxg8oLeA.WNL0I7cUgX3GBEnB.i2GnRNhM0xdOdL9NaGiow6LWxf4qZhhw-IwwOlHEHeRD4C50lswmL2fg1vN1CfB1rUd8SoTNd0NNDEQK54Qws-YGB93d1NTgmBFpTel4i2zXJLYXOvVFw-k5Kv3GozLfO3m_d4jqpFGOWJ6AU9Yn-GaLzNxZ0FPfqZ4GGe3fW02n_gVUfBdA_m6cMGTUeZBGLS7aMkBad1V2ED8Ztv6cYMD57SBGGM_qucAjVBeE7Ef0ZCLanhYKU5MY8-EdYiL1QodlgpQ3OgShxYWIIHl_a_IeE88WqFxVxJlVorBjMtnfXVmRBsJ9npvlKzC_7QIcsBhYTV9-nbNXbxnz8gJYDhx3FvDVeBMMr4bqZ9dOSSHmywci9NyS6US95mVSSE0csQF0YvNOO2zobJ5cW0I73R5ma7ReqFEMtmPUJZEvc8vjphseXMQFf88AKmhQD3fGKB4Jiec82eqjWdjKVc9jTrzU-JFyU-vZ6Am7t7gU5pq8BgtlbB2TDnyBObR0_AkeBCRsOGw4vld8jjDt-LIJobX8en8s3KMWANDvFHYTJb0XhY1Dp2CQx6Z0LxzEjD99C7SEUKy1DOOAi8R7FQCBPrLlk0BY5OMfb-eF1RYWuqSRPWnqZj07iA5kN6ykgDAXqiYWJQowd-fJiESjP_v3fTIRCLK7PAzO6KP5KkSdxC5ol4szwBJC9a2jZ3JiGWYuGpZ-rgOZ8BcFWm66Th94puYhtsafnzxe_wSng4i6qVi9cxw453i5fBusHbEUPhYBp_WyNj9yKOtvnY6RHyJfnVliPJ6QrPPHpz_5wLVUAf2Et4R9O9aOLLjvxaOJG4Y3RmSfdoHEaH5WkNTgegiOUz_ZmJC9ccZyYeJK3Q5ST2aPDFLng6hiQxLqw9wJyT_KHfAKuXGMFGNMjTpyPVeDRx1gYbdBPp-OdkEob_FlUtxiF4EsDCjGAFOODcAEYPf0Ihh1cjACtHClq1LqYZyaHDpcRpf12lm_sNNfqp5y94BV7iRz6j13VYtjhra8mIOqY2G5oK-Iz5t8syV2bjyMDPn_79RFIS7VmKdYQNfgYAmtsm3J82mWOSW-kTjmwApdvpILK-Co-MT4TzZVDdfv_o2HQKlL6ELesVEGtS5ByqAR_uePI1T81upcGiUvaXjQhbe3IalmQEiuBzRhgg-wVtvpGV195a0kSll-9XNVVBImpWRtUV3szxQJrxmpOubLdqGyNI_nBYRtSyZE4OcMSqg-6Qc3FL53pvoSSwNvs0lDk61E-H-ZEWaPDlfLgWmj-6UW9zIqmFdDq-sf4SUXn5qEutNQtyJgnQg6wfn4gZNhdI9jNxy8oaS7.4B0-sW95UwpANpdqma423A"}'
+}
+[2022-06-07T14:29:20.887] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-07T14:29:21.869] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-07T14:29:21.871] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16546013618706565","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654601361870,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"1654601361870531","PNSToken":"5a335eae-1beb-4cf2-8313-e6641914a338","deviceType":"ANDROID"}}'
+}
+[2022-06-07T14:29:21.879] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-07T14:29:22.055] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16546013618706565","messageId":"1","action":"Register"}'
+}
+[2022-06-07T14:29:22.210] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16546013618706565","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654601362089,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T14:29:22.217] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16546013618706565","messageId":"4648b344-9a04-4a7b-a07a-0bf462c35ee4_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654601362089,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-07T14:29:22.218] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-07T14:29:22.218] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16546013618706565","messageId":"2","ts":1654601362218,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"e0e25d5f-6261-4b1e-998c-ca6ece4ada52"}}'
+}
+[2022-06-07T14:29:22.219] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-07T14:29:22.465] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16546013618706565","messageId":"2","action":"CallStart"}'
+}
+[2022-06-07T14:29:23.697] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16546013618706565","ts":1654601363525,"type":"Call","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-07T14:29:23.700] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16546013618706565","ts":1654601363525,"type":"Call","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-07T14:29:23.701] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-07T14:29:24.466] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16546013618706565","ts":1654601364288,"type":"Call","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654601363701 1 IN IP4 54.158.195.103\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.195.103\\r\\nt=0 0\\r\\nm=audio 59936 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.195.103\\r\\na=sendrecv\\r\\na=rtcp:59937 IN IP4 54.158.195.103\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:3016708791 cname:rGcmw5IlAzoUs+4J\\n","service":"P2A"}}'
+}
+[2022-06-07T14:29:24.472] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16546013618706565","ts":1654601364288,"type":"Call","messageId":"2302f1f3-b964-4444-ad66-dac630c2d8a5_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654601363701 1 IN IP4 54.158.195.103\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.195.103\\r\\nt=0 0\\r\\nm=audio 59936 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.195.103\\r\\na=sendrecv\\r\\na=rtcp:59937 IN IP4 54.158.195.103\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:3016708791 cname:rGcmw5IlAzoUs+4J\\n","service":"P2A"}}'
+}
+[2022-06-07T14:29:24.474] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-07T14:29:24.475] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16546013618706565","messageId":"3","ts":1654601364475,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-07T14:29:24.649] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16546013618706565","messageId":"3","action":"Terminate"}'
+}
+[2022-06-07T14:29:25.476] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-07T14:29:25.480] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client CLOSE: {"code":1006,"reason":"","clean":false}'
+}

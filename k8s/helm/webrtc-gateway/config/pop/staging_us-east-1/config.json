@@ -1,0 +1,12 @@
+{
+    "logger": {
+        "logLevel": "error"
+    },
+    "aws": {
+        "webSocketUrl": "yk11kg2xse.execute-api.us-east-1.amazonaws.com/webrtc-ws-apigw",
+        "region": "us-east-1"
+    },
+    "sip": {
+        "contact": "a735bdd2cbcc6434c8f5b452dac80762-733b36b22e6f9f19.elb.us-east-1.amazonaws.com"
+    }
+}

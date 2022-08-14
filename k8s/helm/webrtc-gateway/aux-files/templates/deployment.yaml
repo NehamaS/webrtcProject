@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "webrtc-gateway.name" . }}
+  labels:
+    {{- include "webrtc-gateway.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "webrtc-gateway.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "webrtc-gateway.selectorLabels" . | nindent 8 }}
+    spec:
+      serviceAccountName: {{ include "webrtc-gateway.serviceAccountName" . }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ include "webrtc-gateway.imageURL" . }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.http }}
+              protocol: TCP
+            - name: http-ws
+              containerPort: {{ .Values.serviceWS.http }}
+              protocol: TCP
+          env:
+            - name: POD_UID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.uid
+            - name: THBIND
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.podIP
+            - name: K8s_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+            - name: SRV_CONF_PATH
+              value: {{ .Values.componentSpec.deployment.srv_conf_path }}
+            - name: PLATFORM_TYPE
+              value: k8s
+            - name: CONF_PATH
+              value: {{ .Values.componentSpec.deployment.conf_path }}
+            - name: SERVICE_NAME
+              value: {{ include "webrtc-gateway.name" . }}
+            - name: DD_AGENT_HOST
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
+#            - name: SIP_ADDRESS
+#              valueFrom:
+#                fieldRef:
+#                  fieldPath: status.hostIP
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /isready
+              port: http
+          resources:
+            requests:
+              ephemeral-storage: "2Gi"
+            limits:
+              ephemeral-storage: "2Gi"
+          volumeMounts:
+            - name: app-config-file-vol
+              mountPath: {{ .Values.componentSpec.deployment.conf_path }}
+              subPath: {{ .Values.componentSpec.deployment.conf_file }}
+      volumes:
+        - name: app-config-file-vol
+          configMap:
+            name: {{ include "webrtc-gateway.name" . }}
+      imagePullSecrets:
+        - name: regcred

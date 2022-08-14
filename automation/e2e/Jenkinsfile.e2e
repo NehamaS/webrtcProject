@@ -1,0 +1,143 @@
+def PROFILES
+def JOB_CFG
+
+pipeline {
+    agent { label 'cxs-docker-node-npm' }
+    options {
+        timestamps()
+    }
+    parameters {
+//        string(name: 'CPAAS_HOME', defaultValue: 'wss://1nkgbu7d6d.execute-api.us-east-1.amazonaws.com/restcomm_cpaas_develop', description: 'Reverse proxy - web rtc gateway')
+//        string(name: 'CPAAS_APP_URL', defaultValue: 'webrtc-dev.restcomm.com', description: 'CpaaS Custome domain')
+        choice(name: 'PROFILE',choices: ['dev','staging'],description: 'Profile (environment to run on')
+        choice(name: 'LOG_LEVEL',choices: ['INFO','DEBUG','ERROR','TRACE','FATAL','WARN'],description: 'log level')
+        string(name: 'TAGS', defaultValue: 'all', description: 'comma delimited string of scenario tags: sanity,TMU-2222...')
+    }
+
+    stages {
+        stage("Prepare test env") {
+            parallel {
+                stage('Define job description') {
+                    steps {
+                        script {
+                            init()
+                            JOB_CFG = updateJobMetaData(params)
+                            echo "Job Configuration [debug]: ${JOB_CFG}"
+                        }
+                    }
+                }
+                stage('Npm Install') {
+                    steps {
+                        sh """
+                           npm config set registry https://mavenir.jfrog.io/artifactory/api/npm/enterprise-cpass-mav-npm-virtual/
+                           npm set _auth=cmEtY3BhYXM6TWF2M24xclJhY3BhYXMxMngzNGZnUjdq
+                           npm install
+                           """
+                    }
+                }
+                stage('Create report dir') {
+                    steps {
+                        dir('automation/e2e') {
+                            sh """
+                            mkdir -p reports/jest-cucumber-reporting/
+                            """
+                        }
+                    }
+                }
+            }
+        }
+        stage('Run test') {
+            steps {
+                sh """
+                   export NODE_TLS_REJECT_UNAUTHORIZED=0
+                   export CPAAS_HOME=${JOB_CFG.WSGW}
+                   export CPAAS_APP_URL=${JOB_CFG.DOMAIN}
+                   export LOG_LEVEL=${JOB_CFG.LOG_LEVEL}
+                   export TAGS=${JOB_CFG.TAGS} 
+                   npm run auto:e2e
+                   """
+            }
+        }
+
+        stage("\u2460 setup \u2728") {
+            steps {
+                sh(script: 'whoami', returnStatus: true)
+                sh(script: 'id', returnStatus: true)
+                sh(script: 'echo Home folder is: [$HOME]', returnStatus: true)
+                sh(script: 'echo Current folder is: [$PWD]', returnStatus: true)
+                echo "Job base name: [${env.JOB_BASE_NAME}]"
+                echo "Job name: [${env.JOB_NAME}]"
+            }
+        }
+
+    }
+
+    post {
+        always {
+            echo 'Generating test reports...'
+
+            archiveArtifacts artifacts: '**/automationLogs/**'
+            junit 'automation/e2e/jreports/**/*.xml'
+            publishHTML(target: [
+                    allowMissing         : false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll              : true,
+                    reportDir            : 'automation/e2e/reports',
+                    reportFiles          : 'wbrtcgw_e2e_report.html',
+                    reportName           : "WebRTC Test Result"
+            ])
+        }
+    }
+}
+
+def init(){
+    def profilesStr = '''{
+            "dev":{
+                "wsApiGw": "wss://1nkgbu7d6d.execute-api.us-east-1.amazonaws.com/webrtc-ws-apigw", 
+                "domain": "webrtc-dev.restcomm.com"
+             },
+             "staging":{
+                "wsApiGw": "wss://yk11kg2xse.execute-api.us-east-1.amazonaws.com/webrtc-ws-apigw",
+                "domain": "webrtc-staging.restcomm.com"
+             }
+            }'''
+    PROFILES = readJSON text: profilesStr
+}
+
+def updateJobMetaData(params) {
+    jobConfig = getJobParams(params)
+
+    profile = "${jobConfig.PROFILE}"
+
+    echo "Setting job meta data: ${profile}, ${jobConfig.TAGS}"
+    currentBuild.description = "WebRTC GW E2E: Environment- " + profile + ", Tags- " + jobConfig.TAGS
+    currentBuild.displayName = "WebRTC GW Automation " + jobConfig.WSGW
+    echo "done"
+
+    echo "Job configuration: ${jobConfig}"
+
+    return jobConfig
+
+}
+
+/**
+ * Split tags if needed ";" => ,
+ * @return Map<params, value>
+ */
+def getJobParams(config) {
+    def result = [:]
+
+    result.TAGS = "${config.TAGS ? config.TAGS : 'all'}"
+    result.TAGS.replaceAll(";", ",")
+
+    result.PROFILE = config.PROFILE
+    result.LOG_LEVEL = config.LOG_LEVEL
+
+    echo "selected profile: ${profile}"
+    result.WSGW = PROFILES[profile].wsApiGw
+    result.DOMAIN = PROFILES[profile].domain
+
+    echo "Job configuration: ${config}"
+
+    return result
+}

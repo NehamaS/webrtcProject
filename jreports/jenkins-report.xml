@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="13" failures="0" errors="0" time="27.57">
+  <testsuite name="Cpaas_to_WebRTC_Component" errors="0" failures="0" skipped="5" timestamp="2022-08-04T12:09:35" time="19.764" tests="5">
+    <testcase classname="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, Cpass end call" name="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, Cpass end call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB end call" name="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB end call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB reject call" name="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB reject call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB busy response" name="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB busy response" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB not registered" name="Cpaas_to_WebRTC_Component restcomm&lt;--&gt;ClientB, ClientB not registered" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="WebRTC_to_Cpaas_Component" errors="0" failures="0" skipped="7" timestamp="2022-08-04T12:09:35" time="19.843" tests="7">
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, succeed flow" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, succeed flow" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, reject flow" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, reject flow" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, busy flow" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, busy flow" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, clientB ends call" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, clientB ends call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, clientB recall" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, clientB recall" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, start call after end call" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, start call after end call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, unknown clientB" name="WebRTC_to_Cpaas_Component ClientA&lt;--&gt;restcomm, unknown clientB" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="WebRTC_to_MCU" errors="0" failures="0" skipped="0" timestamp="2022-08-04T12:09:35" time="27.077" tests="1">
+    <testcase classname="WebRTC_to_MCU MCU conf, succeed flow" name="WebRTC_to_MCU MCU conf, succeed flow" time="7.494">
+    </testcase>
+  </testsuite>
+</testsuites>

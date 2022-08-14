@@ -1,0 +1,45 @@
+@startuml
+!theme vibrant
+title WebRTC Gateway
+frame Restcomm {
+  node  "Reverse Proxy" as rp
+  node  "Restcomm Connect" as rc
+  node  "Media Server" as ms
+}
+
+frame WebRTC {
+
+
+package  "Client Applications"{
+  component Application1 {
+    component SDK as sdk1{
+    }
+  }
+
+  component Application2 {
+    component SDK as sdk2{
+    }
+  }
+}
+node  "WS API Gateway" as ws
+package  "EKS"{
+  node  "WebRTC Gateway" as gw
+}
+
+
+sdk1 -[#red]-> rp     : [ws http(upgrade)]
+sdk2 -[#red]-> rp     : [ws http(upgrade)]
+sdk2 -[#green;#yello]-> ms : [RTP]
+
+rp -[#red]-> ws     : [forward http]
+ws -[#green,dashed,thickness=2]-> gw   : [http (rest)]
+gw -[#green,dashed,thickness=4]-> ws   :[aws (sdk)]
+gw <-[#purple]->> rc    : [sip]
+
+database "DynamoDB" as db
+gw -[#blue]-> db
+
+
+}
+
+@enduml

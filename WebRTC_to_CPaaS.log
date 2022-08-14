@@ -1,0 +1,920 @@
+[2022-06-09T11:40:11.713] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:40:11.715] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:40:14.786] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:40:15.653] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-09T11:40:15.657] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547640156558411","messageId":"1","source":"Bob@webrtc-staging.restcomm.com","destination":"GW","ts":1654764015656,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547640156568470","PNSToken":"f3ce6d18-a4a1-4d66-8f1e-a3eb5e4da8c1","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:40:15.666] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-09T11:40:15.966] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547640156558411","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Bob@webrtc-staging.restcomm.com","ts":1654764015806,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:40:15.968] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-09T11:40:15.969] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547640156558411","messageId":"2","ts":1654764015969,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"0226df00-e498-4195-a6a9-564060c1c273"}}'
+}
+[2022-06-09T11:40:15.970] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-09T11:40:16.405] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547640156558411","ts":1654764016233,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:40:16.406] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-09T11:40:16.608] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547640156558411","ts":1654764016425,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654764016348 1 IN IP4 100.26.103.192\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.26.103.192\\r\\nt=0 0\\r\\nm=audio 59066 RTP/AVP 0 100\\r\\nc=IN IP4 100.26.103.192\\r\\na=sendrecv\\r\\na=rtcp:59067 IN IP4 100.26.103.192\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:1683417686 cname:ig55M2NNdXsDdoPp\\n","service":"P2A"}}'
+}
+[2022-06-09T11:40:16.608] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-09T11:40:16.608] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547640156558411","messageId":"3","ts":1654764016608,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-09T11:40:17.610] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:40:17.664] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:40:17.665] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:40:19.205] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:40:19.863] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicRegister',
+  action: 'Elvis send register request with device ANDROID'
+}
+[2022-06-09T11:40:19.863] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547640198638543","messageId":"1","source":"Elvis@webrtc-staging.restcomm.com","destination":"GW","ts":1654764019863,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"Cpaas","deviceId":"16547640198632820","PNSToken":"240552eb-956b-4f5c-bf79-025108123eb3","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:40:19.865] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives RegisterAck response'
+}
+[2022-06-09T11:40:20.090] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547640198638543","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Elvis@webrtc-staging.restcomm.com","ts":1654764019986,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:40:20.091] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicCallStart',
+  action: 'Elvis start call request'
+}
+[2022-06-09T11:40:20.091] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Elvis@webrtc-staging.restcomm.com","destination":"UnknownCostumer@webrtc-staging.restcomm.com","callId":"16547640198638543","messageId":"2","ts":1654764020091,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"88b01963-6904-4cbf-96b7-a02b6d6b3d81"}}'
+}
+[2022-06-09T11:40:20.092] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives Not found response'
+}
+[2022-06-09T11:40:20.536] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Not found response <====== {"source":"UnknownCostumer@webrtc-staging.restcomm.com","destination":"Elvis@webrtc-staging.restcomm.com","callId":"16547640198638543","ts":1654764020370,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"404","description":"Not found","service":"P2A"}}'
+}
+[2022-06-09T11:40:20.537] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:40:20.587] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:40:20.588] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:40:22.303] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:40:23.079] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicRegister',
+  action: 'David send register request with device ANDROID'
+}
+[2022-06-09T11:40:23.080] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547640230797307","messageId":"1","source":"David@webrtc-staging.restcomm.com","destination":"GW","ts":1654764023080,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547640230791827","PNSToken":"447a0608-f579-4a4c-bc97-6125d4a9b06f","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:40:23.081] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives RegisterAck response'
+}
+[2022-06-09T11:40:23.315] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547640230797307","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"David@webrtc-staging.restcomm.com","ts":1654764023212,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:40:23.316] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicCallStart',
+  action: 'David start call request'
+}
+[2022-06-09T11:40:23.316] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547640230797307","messageId":"2","ts":1654764023316,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"6d2978da-2db4-418d-88b2-4eaee4f4d798"}}'
+}
+[2022-06-09T11:40:23.316] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Ringing response'
+}
+[2022-06-09T11:40:23.779] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547640230797307","ts":1654764023587,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:40:23.780] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Answer response'
+}
+[2022-06-09T11:40:23.941] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547640230797307","ts":1654764023750,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654764023666 1 IN IP4 100.25.174.166\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.25.174.166\\r\\nt=0 0\\r\\nm=audio 59360 RTP/AVP 0 100\\r\\nc=IN IP4 100.25.174.166\\r\\na=sendrecv\\r\\na=rtcp:59361 IN IP4 100.25.174.166\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:2651776043 cname:vvOp1pHlBjYUmJb/\\n","service":"P2A"}}'
+}
+[2022-06-09T11:40:26.945] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Terminate response'
+}
+[2022-06-09T11:40:29.248] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Terminate response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547640230797307","ts":1654764029076,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","body":{"action":"Terminate","statusCode":"200","description":"Normal","service":"P2A"}}'
+}
+[2022-06-09T11:40:29.249] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'terminateAck',
+  action: 'David terminateAck request'
+}
+[2022-06-09T11:40:29.249] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'TerminateAck apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547640230797307","messageId":"3","ts":1654764029249,"type":"Call","body":{"action":"TerminateAck","statusCode":"200","requestMessageId":"1","service":"P2A"}}'
+}
+[2022-06-09T11:40:29.249] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:44:52.881] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:44:52.883] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:44:55.556] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:44:56.538] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-09T11:44:56.542] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547642965417755","messageId":"1","source":"Bob@webrtc-staging.restcomm.com","destination":"GW","ts":1654764296542,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"1654764296541254","PNSToken":"29ad4d6a-10b7-4616-89bf-b179d0b2cfd0","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:44:56.552] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-09T11:44:56.814] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547642965417755","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Bob@webrtc-staging.restcomm.com","ts":1654764296687,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:44:56.815] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-09T11:44:56.817] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547642965417755","messageId":"2","ts":1654764296817,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"93d40cdb-557d-4d3d-b055-67aa08dc2b32"}}'
+}
+[2022-06-09T11:44:56.818] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-09T11:44:57.321] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547642965417755","ts":1654764297156,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:44:57.321] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-09T11:44:57.523] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547642965417755","ts":1654764297357,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654764297280 1 IN IP4 100.26.103.192\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.26.103.192\\r\\nt=0 0\\r\\nm=audio 59050 RTP/AVP 0 100\\r\\nc=IN IP4 100.26.103.192\\r\\na=sendrecv\\r\\na=rtcp:59051 IN IP4 100.26.103.192\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:650969870 cname:jMz9hUPzR7Ftg2JH\\n","service":"P2A"}}'
+}
+[2022-06-09T11:44:57.525] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-09T11:44:57.525] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547642965417755","messageId":"3","ts":1654764297525,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-09T11:44:58.526] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:44:58.583] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:44:58.584] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:45:00.422] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:45:01.238] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicRegister',
+  action: 'Elvis send register request with device ANDROID'
+}
+[2022-06-09T11:45:01.238] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547643012389556","messageId":"1","source":"Elvis@webrtc-staging.restcomm.com","destination":"GW","ts":1654764301238,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"Cpaas","deviceId":"16547643012381445","PNSToken":"1955158a-a414-4e91-84b7-a5ec34d07ba6","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:45:01.240] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives RegisterAck response'
+}
+[2022-06-09T11:45:01.473] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547643012389556","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Elvis@webrtc-staging.restcomm.com","ts":1654764301378,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:45:01.475] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicCallStart',
+  action: 'Elvis start call request'
+}
+[2022-06-09T11:45:01.475] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Elvis@webrtc-staging.restcomm.com","destination":"UnknownCostumer@webrtc-staging.restcomm.com","callId":"16547643012389556","messageId":"2","ts":1654764301475,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"375bb8b2-5761-4a04-9de8-46760e2db681"}}'
+}
+[2022-06-09T11:45:01.476] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives Not found response'
+}
+[2022-06-09T11:45:02.058] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Not found response <====== {"source":"UnknownCostumer@webrtc-staging.restcomm.com","destination":"Elvis@webrtc-staging.restcomm.com","callId":"16547643012389556","ts":1654764301820,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"404","description":"Not found","service":"P2A"}}'
+}
+[2022-06-09T11:45:02.059] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:45:02.111] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:45:02.112] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:45:03.839] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:45:04.517] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicRegister',
+  action: 'David send register request with device ANDROID'
+}
+[2022-06-09T11:45:04.518] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547643045184167","messageId":"1","source":"David@webrtc-staging.restcomm.com","destination":"GW","ts":1654764304518,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547643045181267","PNSToken":"268bcd2c-11fe-4c74-8caa-10e9c53814ac","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:45:04.520] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives RegisterAck response'
+}
+[2022-06-09T11:45:04.736] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547643045184167","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"David@webrtc-staging.restcomm.com","ts":1654764304644,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:45:04.737] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicCallStart',
+  action: 'David start call request'
+}
+[2022-06-09T11:45:04.737] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547643045184167","messageId":"2","ts":1654764304737,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"008c1b1b-79dc-4600-8c73-a4f56c8074d4"}}'
+}
+[2022-06-09T11:45:04.737] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Ringing response'
+}
+[2022-06-09T11:45:05.151] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547643045184167","ts":1654764305001,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:45:05.153] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Answer response'
+}
+[2022-06-09T11:45:05.336] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547643045184167","ts":1654764305159,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654764305096 1 IN IP4 100.25.174.166\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.25.174.166\\r\\nt=0 0\\r\\nm=audio 59348 RTP/AVP 0 100\\r\\nc=IN IP4 100.25.174.166\\r\\na=sendrecv\\r\\na=rtcp:59349 IN IP4 100.25.174.166\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:350661967 cname:mQ2ZxsUni9vDagC0\\n","service":"P2A"}}'
+}
+[2022-06-09T11:45:08.339] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Terminate response'
+}
+[2022-06-09T11:45:10.664] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Terminate response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547643045184167","ts":1654764310478,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","body":{"action":"Terminate","statusCode":"200","description":"Normal","service":"P2A"}}'
+}
+[2022-06-09T11:45:10.665] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'terminateAck',
+  action: 'David terminateAck request'
+}
+[2022-06-09T11:45:10.665] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'TerminateAck apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547643045184167","messageId":"3","ts":1654764310665,"type":"Call","body":{"action":"TerminateAck","statusCode":"200","requestMessageId":"1","service":"P2A"}}'
+}
+[2022-06-09T11:45:10.666] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:58:05.466] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:58:05.468] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:58:08.710] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:58:09.487] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-09T11:58:09.491] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547650894897496","messageId":"1","source":"Bob@webrtc-staging.restcomm.com","destination":"GW","ts":1654765089491,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547650894893053","PNSToken":"a20c7009-74da-4337-93c8-bf21e54b30c8","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:58:09.503] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-09T11:58:09.768] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547650894897496","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Bob@webrtc-staging.restcomm.com","ts":1654765089634,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:58:09.771] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-09T11:58:09.773] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547650894897496","messageId":"2","ts":1654765089773,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"4ea63369-8b88-4018-9ee4-7d1509eb5d72"}}'
+}
+[2022-06-09T11:58:09.775] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-09T11:58:10.346] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547650894897496","ts":1654765090105,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:58:10.346] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-09T11:58:10.471] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547650894897496","ts":1654765090308,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654765090227 1 IN IP4 100.26.103.192\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.26.103.192\\r\\nt=0 0\\r\\nm=audio 58990 RTP/AVP 0 100\\r\\nc=IN IP4 100.26.103.192\\r\\na=sendrecv\\r\\na=rtcp:58991 IN IP4 100.26.103.192\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:112841401 cname:l76cftpAW5FnA4iA\\n","service":"P2A"}}'
+}
+[2022-06-09T11:58:10.474] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-09T11:58:10.475] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547650894897496","messageId":"3","ts":1654765090475,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-09T11:58:11.477] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:58:11.549] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:58:11.552] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:58:13.319] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:58:14.029] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicRegister',
+  action: 'Elvis send register request with device ANDROID'
+}
+[2022-06-09T11:58:14.030] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547650940297147","messageId":"1","source":"Elvis@webrtc-staging.restcomm.com","destination":"GW","ts":1654765094029,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"Cpaas","deviceId":"16547650940294771","PNSToken":"89abc394-a4b1-4c40-a221-262526570f87","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:58:14.032] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives RegisterAck response'
+}
+[2022-06-09T11:58:14.275] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547650940297147","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Elvis@webrtc-staging.restcomm.com","ts":1654765094166,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:58:14.275] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicCallStart',
+  action: 'Elvis start call request'
+}
+[2022-06-09T11:58:14.276] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Elvis@webrtc-staging.restcomm.com","destination":"UnknownCostumer@webrtc-staging.restcomm.com","callId":"16547650940297147","messageId":"2","ts":1654765094276,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"c4e21d0b-5e36-456d-8bbb-9151df1ec4d0"}}'
+}
+[2022-06-09T11:58:14.276] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives Not found response'
+}
+[2022-06-09T11:58:14.752] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Not found response <====== {"source":"UnknownCostumer@webrtc-staging.restcomm.com","destination":"Elvis@webrtc-staging.restcomm.com","callId":"16547650940297147","ts":1654765094565,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"404","description":"Not found","service":"P2A"}}'
+}
+[2022-06-09T11:58:14.753] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:58:14.807] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:58:14.809] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:58:16.692] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:58:17.407] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicRegister',
+  action: 'David send register request with device ANDROID'
+}
+[2022-06-09T11:58:17.408] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547650974084625","messageId":"1","source":"David@webrtc-staging.restcomm.com","destination":"GW","ts":1654765097408,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547650974081215","PNSToken":"e377b166-6d4e-4da0-a9b1-51a796267d14","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:58:17.409] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives RegisterAck response'
+}
+[2022-06-09T11:58:17.620] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547650974084625","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_1","source":"GW","destination":"David@webrtc-staging.restcomm.com","ts":1654765097519,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:58:17.621] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicCallStart',
+  action: 'David start call request'
+}
+[2022-06-09T11:58:17.622] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547650974084625","messageId":"2","ts":1654765097622,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"6a6f7e2c-26e5-4855-a814-7a779634471f"}}'
+}
+[2022-06-09T11:58:17.622] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Ringing response'
+}
+[2022-06-09T11:58:18.037] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547650974084625","ts":1654765097873,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:58:18.038] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Answer response'
+}
+[2022-06-09T11:58:18.229] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547650974084625","ts":1654765098061,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654765097977 1 IN IP4 100.25.174.166\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.25.174.166\\r\\nt=0 0\\r\\nm=audio 59306 RTP/AVP 0 100\\r\\nc=IN IP4 100.25.174.166\\r\\na=sendrecv\\r\\na=rtcp:59307 IN IP4 100.25.174.166\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:772318651 cname:i7i5x/ywDqLmpwLQ\\n","service":"P2A"}}'
+}
+[2022-06-09T11:58:21.232] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Terminate response'
+}
+[2022-06-09T11:58:23.554] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Terminate response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547650974084625","ts":1654765103379,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","body":{"action":"Terminate","statusCode":"200","description":"Normal","service":"P2A"}}'
+}
+[2022-06-09T11:58:23.556] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'terminateAck',
+  action: 'David terminateAck request'
+}
+[2022-06-09T11:58:23.556] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'TerminateAck apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547650974084625","messageId":"3","ts":1654765103556,"type":"Call","body":{"action":"TerminateAck","statusCode":"200","requestMessageId":"1","service":"P2A"}}'
+}
+[2022-06-09T11:58:23.557] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:59:28.416] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:59:28.418] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:59:31.606] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:59:32.441] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-09T11:59:32.443] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547651724428945","messageId":"1","source":"Bob@webrtc-staging.restcomm.com","destination":"GW","ts":1654765172443,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547651724428880","PNSToken":"eab4be4c-780a-4352-8027-6deb350d7d1f","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:59:32.453] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-09T11:59:32.712] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547651724428945","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_1","source":"GW","destination":"Bob@webrtc-staging.restcomm.com","ts":1654765172592,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:59:32.715] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-09T11:59:32.717] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547651724428945","messageId":"2","ts":1654765172717,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"7c5bd11b-498b-45a4-9701-531048ccfa1b"}}'
+}
+[2022-06-09T11:59:32.718] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-09T11:59:33.194] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547651724428945","ts":1654765173000,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:59:33.194] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-09T11:59:33.497] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"Bob@webrtc-staging.restcomm.com","callId":"16547651724428945","ts":1654765173201,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654765173126 1 IN IP4 100.26.103.192\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.26.103.192\\r\\nt=0 0\\r\\nm=audio 58988 RTP/AVP 0 100\\r\\nc=IN IP4 100.26.103.192\\r\\na=sendrecv\\r\\na=rtcp:58989 IN IP4 100.26.103.192\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:1808189768 cname:sy2ML8eLMs6l+pQx\\n","service":"P2A"}}'
+}
+[2022-06-09T11:59:33.498] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-09T11:59:33.499] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547651724428945","messageId":"3","ts":1654765173499,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-09T11:59:34.500] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:59:34.568] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:59:34.572] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:59:36.134] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:59:36.775] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicRegister',
+  action: 'Elvis send register request with device ANDROID'
+}
+[2022-06-09T11:59:36.776] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547651767762882","messageId":"1","source":"Elvis@webrtc-staging.restcomm.com","destination":"GW","ts":1654765176776,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"Cpaas","deviceId":"16547651767763211","PNSToken":"6ed74bde-8796-4a6c-99c2-ec0833c99f08","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:59:36.779] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives RegisterAck response'
+}
+[2022-06-09T11:59:36.999] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547651767762882","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_1","source":"GW","destination":"Elvis@webrtc-staging.restcomm.com","ts":1654765176900,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:59:37.000] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'basicCallStart',
+  action: 'Elvis start call request'
+}
+[2022-06-09T11:59:37.000] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Elvis@webrtc-staging.restcomm.com","destination":"UnknownCostumer@webrtc-staging.restcomm.com","callId":"16547651767762882","messageId":"2","ts":1654765177000,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"78ad2748-6c71-4eef-96e2-528c3fb1e5a8"}}'
+}
+[2022-06-09T11:59:37.000] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Elvis receives Not found response'
+}
+[2022-06-09T11:59:37.510] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'waitForResponse',
+  action: 'Not found response <====== {"source":"UnknownCostumer@webrtc-staging.restcomm.com","destination":"Elvis@webrtc-staging.restcomm.com","callId":"16547651767762882","ts":1654765177322,"type":"Call","messageId":"f8eaa2c8-aa07-42c3-b54b-8d4c2e070ce6_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"404","description":"Not found","service":"P2A"}}'
+}
+[2022-06-09T11:59:37.511] [INFO] WebRTC_to_CPaaS - {
+  test: 'call to unknown CPaaS Application',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-09T11:59:37.562] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Set context with: cpaasAppUrl- webrtc-staging.restcomm.com, featureType- e2e, service- P2A'
+}
+[2022-06-09T11:59:37.563] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-09T11:59:39.281] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-09T11:59:39.877] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicRegister',
+  action: 'David send register request with device ANDROID'
+}
+[2022-06-09T11:59:39.878] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16547651798784196","messageId":"1","source":"David@webrtc-staging.restcomm.com","destination":"GW","ts":1654765179878,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16547651798787600","PNSToken":"aa3f9dd1-f8d0-4723-b143-9b16c6af08dc","deviceType":"ANDROID"}}'
+}
+[2022-06-09T11:59:39.880] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives RegisterAck response'
+}
+[2022-06-09T11:59:40.110] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16547651798784196","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_1","source":"GW","destination":"David@webrtc-staging.restcomm.com","ts":1654765180010,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-09T11:59:40.111] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'basicCallStart',
+  action: 'David start call request'
+}
+[2022-06-09T11:59:40.112] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547651798784196","messageId":"2","ts":1654765180111,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"3f3fb7fe-c3d4-4b75-9bb4-73bdb8b2125d"}}'
+}
+[2022-06-09T11:59:40.112] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Ringing response'
+}
+[2022-06-09T11:59:40.553] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547651798784196","ts":1654765180379,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-09T11:59:40.554] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Answer response'
+}
+[2022-06-09T11:59:41.448] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547651798784196","ts":1654765181285,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654765180457 1 IN IP4 100.25.174.166\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 100.25.174.166\\r\\nt=0 0\\r\\nm=audio 59304 RTP/AVP 0 100\\r\\nc=IN IP4 100.25.174.166\\r\\na=sendrecv\\r\\na=rtcp:59305 IN IP4 100.25.174.166\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:1479024062 cname:r0J4JN9auGGW9XUo\\n","service":"P2A"}}'
+}
+[2022-06-09T11:59:44.453] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'David receives Terminate response'
+}
+[2022-06-09T11:59:46.771] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'waitForResponse',
+  action: 'Terminate response <====== {"source":"MCUCostumerSupport@webrtc-staging.restcomm.com","destination":"David@webrtc-staging.restcomm.com","callId":"16547651798784196","ts":1654765186601,"type":"Call","messageId":"67e4e035-bbbd-464e-bed7-9af4305f4f03_1","body":{"action":"Terminate","statusCode":"200","description":"Normal","service":"P2A"}}'
+}
+[2022-06-09T11:59:46.777] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'terminateAck',
+  action: 'David terminateAck request'
+}
+[2022-06-09T11:59:46.782] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'buildAndSendRequest',
+  action: 'TerminateAck apiReq ======> {"source":"David@webrtc-staging.restcomm.com","destination":"MCUCostumerSupport@webrtc-staging.restcomm.com","callId":"16547651798784196","messageId":"3","ts":1654765186782,"type":"Call","body":{"action":"TerminateAck","statusCode":"200","requestMessageId":"1","service":"P2A"}}'
+}
+[2022-06-09T11:59:46.782] [INFO] WebRTC_to_CPaaS - {
+  test: 'happy path - CPaaS Application terminates call',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}

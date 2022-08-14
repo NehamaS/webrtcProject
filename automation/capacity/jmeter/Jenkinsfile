@@ -1,0 +1,104 @@
+
+def downloadJMeter() {
+    s3Download(file:'apache-jmeter-5.4.3.tar.gz', bucket:'webrtcgw', path:'capacity/apache-jmeter-5.4.3.tar.gz', force:true)
+    sh "file apache-jmeter-5.4.3.tar.gz"
+    sh "tar -zxvf apache-jmeter-5.4.3.tar.gz"
+}
+
+def downloadRepository() {
+    println "loading of git webrtc-gw repo"
+    sh "rm -rf ${WORKSPACE}/webrtcgw-git"
+    sh "mkdir ${WORKSPACE}/webrtcgw-git"
+    dir("${WORKSPACE}/webrtcgw-git") {
+        git branch: 'master', credentialsId: 'c2cce724-a831-4ec8-82b1-73d28d1c367a', url: 'https://bitbucket.org/telestax/webrtc-gateway.git'
+    }
+}
+
+
+def runJMeter() {
+     sh "chmod 777 ${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/*"
+     sh "mv ${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/jmeterConfig/AppSid.csv ${JMETER_HOME}/AppSid.csv"
+     sh "mv ${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/jmeterConfig/jmeter.properties ${JMETER_HOME}/jmeter.properties"
+     sh "${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/main.sh"
+}
+
+def runPost() {
+    dir("${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/") {
+        sh "npm run mocha"
+        sh "cat ${WORKSPACE}/webrtcgw-git/test-results.xml"
+    }
+}
+
+
+
+def runPre() {
+    dir("${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/") {
+
+        sh "npm config set registry https://mavenir.jfrog.io/artifactory/api/npm/enterprise-cpass-mav-npm-virtual/"
+        sh "npm set _auth=cmEtY3BhYXM6TWF2M24xclJhY3BhYXMxMngzNGZnUjdq"
+        sh "npm install"
+        sh "npx ts-node ${WORKSPACE}/webrtcgw-git/automation/capacity/jmeter/cognitoAuth.ts"
+        sh "cat /home/ubuntu/workspace/jmeterCapacity/webrtcgw-git/automation/capacity/jmeter//jmeterConfig/token.txt"
+    }
+}
+
+
+def publishResults() {
+        junit '**/test*.xml'
+}
+
+
+def generateParallel() {
+    def parallelTests = [:]
+    def forkCount = "${FORK_COUNT}".toInteger()
+    def parallelPublicIPs = [:]
+    for (int i = 0 ; i < forkCount ; i++) {
+        def forkPrefix = "fork-"
+        def forkName = "${forkPrefix}${i}"
+        def forkNum = "${i}"
+        def nodeID = i
+        def workspace = env.WORKSPACE
+
+        parallelTests["fork-${i}"] = {
+            node("cxs-docker-node-npm") {
+            List envVar = [
+                                    "NODE_NAME=${forkName}",
+                                    "APPSID_CSV_PATH=${JMETER_HOME}/AppSid.csv"
+                            ]
+                withAWS(credentials: "aws-access-key-dev"){
+                withEnv(envVar){
+                    downloadJMeter()
+                    downloadRepository()
+                    runPre()
+                    runJMeter()
+                    archiveArtifacts artifacts: '**/*reports/**'
+                    runPost()
+                    publishResults()
+
+                }
+
+               }
+            }
+
+        }
+    }
+
+
+    return parallelTests
+}
+
+
+
+
+timeout(time: 8, unit: 'HOURS') {
+node("cxs-docker-node-npm") {
+
+        def parallelTests = generateParallel()
+        stage('Run-Capacity-Forks')
+        {
+            parallel parallelTests
+        }
+
+}
+}
+

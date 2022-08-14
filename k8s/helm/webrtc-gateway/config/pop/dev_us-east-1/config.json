@@ -1,0 +1,9 @@
+{
+  "aws": {
+    "webSocketUrl": "1nkgbu7d6d.execute-api.us-east-1.amazonaws.com/webrtc-ws-apigw",
+    "region": "us-east-1"
+  },
+  "sip": {
+    "contact": "a28d45dd53a8b408a8f56fcd3841ac5f-91bba823b608efa4.elb.us-east-1.amazonaws.com"
+  }
+}

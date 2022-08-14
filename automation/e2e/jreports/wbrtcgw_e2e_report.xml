@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="9" failures="0" errors="0" time="26.176">
+  <testsuite name="WebRTC_to_WebRTC" errors="0" failures="0" skipped="6" timestamp="2022-07-26T10:25:52" time="16.296" tests="6">
+    <testcase classname="WebRTC_to_WebRTC happy path - userA call userB" name="WebRTC_to_WebRTC happy path - userA call userB" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_WebRTC userA start call, userB end call" name="WebRTC_to_WebRTC userA start call, userB end call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_WebRTC userA start call, userB reject call" name="WebRTC_to_WebRTC userA start call, userB reject call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_WebRTC call to unregistered user" name="WebRTC_to_WebRTC call to unregistered user" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_WebRTC register user after start call" name="WebRTC_to_WebRTC register user after start call" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_WebRTC start call after userB disconnected" name="WebRTC_to_WebRTC start call after userB disconnected" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+  <testsuite name="WebRTC_to_CPaaS" errors="0" failures="0" skipped="2" timestamp="2022-07-26T10:25:52" time="25.708" tests="3">
+    <testcase classname="WebRTC_to_CPaaS happy path - userA send BYE" name="WebRTC_to_CPaaS happy path - userA send BYE" time="9.404">
+    </testcase>
+    <testcase classname="WebRTC_to_CPaaS call to unknown CPaaS Application" name="WebRTC_to_CPaaS call to unknown CPaaS Application" time="0">
+      <skipped/>
+    </testcase>
+    <testcase classname="WebRTC_to_CPaaS happy path - CPaaS Application terminates call" name="WebRTC_to_CPaaS happy path - CPaaS Application terminates call" time="0">
+      <skipped/>
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,91 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CALL_SERVICE_OK = exports.CALL_SERVICE_RINGING = exports.API_GW_REQUEST_TERMINATE = exports.API_GW_BUSY_HERE = exports.API_GW_GONE = exports.API_GW_NOT_FOUND = exports.API_GW_BAD_FORBIDDEN = exports.API_GW_UNAUTHORIZED = exports.API_GW_BAD_REQUEST = exports.API_GW_NORMAL = exports.API_GW_RINGING = exports.CONFERENCE_TYPE = exports.UPDATE_CALL_TYPE = exports.CALL_SERVICE_TYPE = exports.WEBRTC_GW_VERSION = exports.AWS_API_VERSION = exports.STOP_SCREEN_SHARE_ACTION_ACK = exports.STOP_SCREEN_SHARE_ACTION = exports.START_SCREEN_SHARE_ACTION_ACK = exports.START_SCREEN_SHARE_ACTION = exports.DESTROY_CONFERENCE_ACTION_ACK = exports.DESTROY_CONFERENCE_ACTION = exports.MODIFY_CONNECTION_ACTION_ACK = exports.MODIFY_CONNECTION_ACTION = exports.TERMINATE_CONNECTION_ACTION_ACK = exports.TERMINATE_CONNECTION_ACTION = exports.VIDEO_START_ACTION_ACK = exports.VIDEO_START_ACTION = exports.CREATE_CONFERENCE_ACTION_ACK = exports.CREATE_CONFERENCE_ACTION = exports.RECONNECT_REASON = exports.JOIN_REASON = exports.UNDEFINED_ACTION = exports.MODIFY_ACTION_ACK = exports.MODIFY_ACTION = exports.RESUME_ACTION_ACK = exports.RESUME_ACTION = exports.HOLD_ACTION_ACK = exports.HOLD_ACTION = exports.TERMINATE_ACK_ACTION = exports.TERMINATE_ACTION = exports.ANSWER_ACTION = exports.STATUS_ACTION = exports.START_ACTION = exports.REGISTER_ACTION_ACK = exports.UNREGISTER_ACTION = exports.REGISTER_ACTION = exports.WSS_PORT = exports.WS_PORT = exports.SIP_PORT = void 0;
+exports.RejectCallReason = exports.CounterName = exports.getMessageId = exports.NO_CONNECTION = exports.USERS_TABLE = exports.ACTION_TABLE = exports.SIP_TABLE = exports.SESSION_TABLE = exports.AUTH_HEADER = exports.USER_ID = exports.APP_SID = exports.ACCESS_TOKEN = exports.DEVICE_ID = exports.CONNECTION_ID = exports.CALL_SERVICE_BAD_EVENT = void 0;
+exports.SIP_PORT = 5060;
+exports.WS_PORT = 5210;
+exports.WSS_PORT = 5220;
+exports.REGISTER_ACTION = 'Register';
+exports.UNREGISTER_ACTION = 'Unregister';
+exports.REGISTER_ACTION_ACK = 'RegisterAck';
+exports.START_ACTION = 'CallStart';
+exports.STATUS_ACTION = 'CallStatus';
+exports.ANSWER_ACTION = 'Answer';
+exports.TERMINATE_ACTION = 'Terminate';
+exports.TERMINATE_ACK_ACTION = 'TerminateAck';
+exports.HOLD_ACTION = 'Hold';
+exports.HOLD_ACTION_ACK = 'HoldAnswer';
+exports.RESUME_ACTION = 'Resume';
+exports.RESUME_ACTION_ACK = 'ResumeAnswer';
+exports.MODIFY_ACTION = 'ModifyCall';
+exports.MODIFY_ACTION_ACK = 'ModifyCallAck';
+exports.UNDEFINED_ACTION = 'Undefined';
+exports.JOIN_REASON = 'Join';
+exports.RECONNECT_REASON = 'Reconnect';
+exports.CREATE_CONFERENCE_ACTION = 'Create';
+exports.CREATE_CONFERENCE_ACTION_ACK = 'CreateAck';
+exports.VIDEO_START_ACTION = 'VideoStart';
+exports.VIDEO_START_ACTION_ACK = 'Answer';
+exports.TERMINATE_CONNECTION_ACTION = 'Terminate';
+exports.TERMINATE_CONNECTION_ACTION_ACK = 'TerminateAck';
+exports.MODIFY_CONNECTION_ACTION = 'ModifyCall';
+exports.MODIFY_CONNECTION_ACTION_ACK = 'ModifyCallAck';
+exports.DESTROY_CONFERENCE_ACTION = 'Close';
+exports.DESTROY_CONFERENCE_ACTION_ACK = 'CloseAck';
+exports.START_SCREEN_SHARE_ACTION = 'StartScreenShare';
+exports.START_SCREEN_SHARE_ACTION_ACK = 'StartScreenShareAck';
+exports.STOP_SCREEN_SHARE_ACTION = 'StopScreenShare';
+exports.STOP_SCREEN_SHARE_ACTION_ACK = 'StopScreenShareAck';
+exports.AWS_API_VERSION = '2018-11-29';
+exports.WEBRTC_GW_VERSION = '1.0';
+exports.CALL_SERVICE_TYPE = 'Call';
+exports.UPDATE_CALL_TYPE = 'UpdateCall';
+exports.CONFERENCE_TYPE = 'Video';
+exports.API_GW_RINGING = { CODE: "200", DESC: 'Ringing' };
+exports.API_GW_NORMAL = { CODE: "200", DESC: 'Normal' };
+exports.API_GW_BAD_REQUEST = { CODE: "400", DESC: 'Bad Request' };
+exports.API_GW_UNAUTHORIZED = { CODE: "401", DESC: 'Unauthorized' };
+exports.API_GW_BAD_FORBIDDEN = { CODE: "403", DESC: 'Forbidden' };
+exports.API_GW_NOT_FOUND = { CODE: "404", DESC: 'Not Found' };
+exports.API_GW_GONE = { CODE: "410", DESC: 'Gone' };
+exports.API_GW_BUSY_HERE = { CODE: "486", DESC: 'Busy Here' };
+exports.API_GW_REQUEST_TERMINATE = { CODE: "487", DESC: 'Request Terminated' };
+exports.CALL_SERVICE_RINGING = { CODE: "180", DESC: 'Ringing' };
+exports.CALL_SERVICE_OK = { CODE: "200", DESC: 'OK' };
+exports.CALL_SERVICE_BAD_EVENT = { CODE: "489", DESC: 'Bad Event' };
+exports.CONNECTION_ID = "connectionId";
+exports.DEVICE_ID = "deviceId";
+exports.ACCESS_TOKEN = "accessToken";
+exports.APP_SID = "appSid";
+exports.USER_ID = "userId";
+exports.AUTH_HEADER = "Authorization";
+exports.SESSION_TABLE = "webrtc_sessions";
+exports.SIP_TABLE = "webrtc_sip";
+exports.ACTION_TABLE = "webrtc_action";
+exports.USERS_TABLE = "webrtc_users";
+exports.NO_CONNECTION = "none";
+const getMessageId = (messageId, srvType) => {
+    switch (srvType) {
+        case "P2P":
+            return messageId;
+        default:
+            return process.env.POD_UID ? `${process.env.POD_UID}_${messageId}` : messageId;
+    }
+    return messageId;
+};
+exports.getMessageId = getMessageId;
+var CounterName;
+(function (CounterName) {
+    CounterName["startCall"] = "startCall";
+    CounterName["endCall"] = "endCall";
+    CounterName["rejectCall"] = "rejectCall";
+    CounterName["acceptCall"] = "acceptCall";
+    CounterName["wsConnectionAccepted"] = "wsConnectionAccepted";
+    CounterName["wsConnectionRejected"] = "wsConnectionRejected";
+})(CounterName = exports.CounterName || (exports.CounterName = {}));
+var RejectCallReason;
+(function (RejectCallReason) {
+    RejectCallReason["noRecordInDB"] = "noRecordInDB";
+    RejectCallReason["errorResponse"] = "errorResponse";
+})(RejectCallReason = exports.RejectCallReason || (exports.RejectCallReason = {}));
+//# sourceMappingURL=constants.js.map

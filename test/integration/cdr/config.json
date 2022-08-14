@@ -1,0 +1,14 @@
+{
+  "aws": {
+    "mock": {
+      "db": true,
+      "ws": true,
+      "webSocketUrl": "http://127.0.0.1:8088/ws"
+    },
+    "webSocketUrl": "8ndc53x5xg.execute-api.us-east-1.amazonaws.com/integration",
+    "region" : "us-east-1"
+  },
+  "cdr": {
+    "enabled": false
+  }
+}

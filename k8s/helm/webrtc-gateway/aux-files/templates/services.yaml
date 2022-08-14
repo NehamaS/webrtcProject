@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "webrtc-gateway.name" . }}
+  labels:
+    {{- include "webrtc-gateway.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.http }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "webrtc-gateway.selectorLabels" . | nindent 4 }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "webrtc-gateway.name" . }}-ws
+  labels:
+    {{- include "webrtc-gateway.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.serviceWS.type }}
+  ports:
+    - port: {{ .Values.serviceWS.http }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "webrtc-gateway.selectorLabels" . | nindent 4 }}

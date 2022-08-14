@@ -1,0 +1,1661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="capacityTest" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="capacityTest" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(numberOfThread)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(startUpTime)}</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="response verification helper" enabled="true">
+          <stringProp name="scriptLanguage">javascript</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">
+props.put(&quot;failuresSummary&quot;, function failuresSummary(responseArr) {
+	var failuresString=&quot;&quot;
+	var isFailed=false
+	for (var key in responseArr) {
+		if(responseArr[key]==true)
+		{
+    			failuresString=failuresString+key+&quot;, &quot;
+    			var isFailed=true
+    			
+		}
+		
+}
+return {&quot;isFailed&quot;:isFailed,&quot;failuresString&quot;:failuresString+&quot; headers assertion fail&quot;}
+});
+
+
+props.put(&quot;responseVerification&quot;, function responseVerification(testedHedaer,expectedValue) {
+	return (testedHedaer!=expectedValue)	
+});
+
+props.put(&quot;sleepCalculateAccordingAppSid&quot;, function sleepCalculateAccordingAppSid(randomAppSid) {
+	if(${randomAppSid}==&quot;222222222&quot;)  
+	{
+   return 30000
+	}
+	if(${randomAppSid}==&quot;333333333&quot;) 
+	{ 
+   return 5000
+	}
+	if(${randomAppSid}==&quot;111111111&quot;) {
+   return 3000
+	}
+});
+
+props.put(&quot;sleepCalculateAccordingIndex&quot;, function sleepCalculateAccordingIndex(index) {
+	
+   return 1000*${index}	
+	
+});
+
+
+
+
+
+
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">prev.setIgnore()</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Index" enabled="true">
+          <stringProp name="CounterConfig.start">1</stringProp>
+          <stringProp name="CounterConfig.end"></stringProp>
+          <stringProp name="CounterConfig.incr">1</stringProp>
+          <stringProp name="CounterConfig.name">index</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">prev.setIgnore()</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="register Controller" enabled="true"/>
+        <hashTree>
+          <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+            <stringProp name="WhileController.condition">${__javaScript((vars.get(&quot;registerFailure&quot;)==&quot;true&quot; &amp;&amp; ${counter} &lt; 5),)}</stringProp>
+          </WhileController>
+          <hashTree>
+            <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="callId" enabled="true">
+              <stringProp name="variableName">callId</stringProp>
+              <stringProp name="outputFormat"></stringProp>
+              <stringProp name="minimumValue">999</stringProp>
+              <stringProp name="maximumValue">99999</stringProp>
+              <stringProp name="randomSeed"></stringProp>
+              <boolProp name="perThread">true</boolProp>
+            </RandomVariableConfig>
+            <hashTree/>
+            <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="threadId" enabled="true">
+              <stringProp name="variableName">threadId</stringProp>
+              <stringProp name="outputFormat"></stringProp>
+              <stringProp name="minimumValue">9999</stringProp>
+              <stringProp name="maximumValue">99999</stringProp>
+              <stringProp name="randomSeed"></stringProp>
+              <boolProp name="perThread">true</boolProp>
+            </RandomVariableConfig>
+            <hashTree/>
+            <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="true">
+              <stringProp name="statusCode">1000</stringProp>
+            </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+            <hashTree>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                <stringProp name="ConstantTimer.delay">2000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings"/>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="First Open Connection" enabled="true">
+              <boolProp name="TLS">true</boolProp>
+              <stringProp name="server">yk11kg2xse.execute-api.us-east-1.amazonaws.com</stringProp>
+              <stringProp name="port">443</stringProp>
+              <stringProp name="path">webrtc-ws-apigw</stringProp>
+            </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+            <hashTree>
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                <collectionProp name="HeaderManager.headers">
+                  <elementProp name="" elementType="Header">
+                    <stringProp name="Header.name">Authorization</stringProp>
+                    <stringProp name="Header.value">&quot;${__StringFromFile(${__P(tokenPathUrl)})}&quot;</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </HeaderManager>
+              <hashTree/>
+            </hashTree>
+            <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to false" enabled="true">
+              <stringProp name="scriptLanguage">groovy</stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;false&quot;) ;</stringProp>
+            </JSR223Sampler>
+            <hashTree>
+              <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="script">prev.setIgnore()</stringProp>
+                <stringProp name="scriptLanguage">groovy</stringProp>
+              </JSR223PostProcessor>
+              <hashTree/>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="send register" enabled="true">
+              <boolProp name="createNewConnection">false</boolProp>
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <boolProp name="binaryPayload">false</boolProp>
+              <stringProp name="requestData"> {&quot;callId&quot;:&quot;${callId}bob-981${index}&quot;,&quot;messageId&quot;:&quot;1&quot;,&quot;source&quot;:&quot;srcUser${index}${threadId}@mavenir.com&quot;,&quot;destination&quot;:&quot;GW&quot;,&quot;ts&quot;:${__time()},&quot;type&quot;:&quot;Register&quot;,&quot;body&quot;:{&quot;protocolVersion&quot;:&quot;1.0&quot;,&quot;clientVersion&quot;:&quot;1.0&quot;,&quot;appSid&quot;:&quot;${randomAppSid}&quot;,&quot;deviceId&quot;:&quot;webtest&quot;,&quot;deviceType&quot;:&quot;ANDROID&quot;}}</stringProp>
+              <stringProp name="readTimeout">32000</stringProp>
+              <boolProp name="loadDataFromFile">false</boolProp>
+              <stringProp name="dataFile"></stringProp>
+            </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+                <stringProp name="Scope.variable"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${index} ${threadId}</stringProp>
+                <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+
+responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+log.info(&quot;responseObj.source&quot;+responseObj.source)
+
+
+
+responseArr.action=props.get(&quot;responseVerification&quot;)(responseObj.action,&quot;Register&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;GW&quot;)
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">javascript</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">5000</stringProp>
+                <stringProp name="Assertion.scope">all</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${index} ${callId}</stringProp>
+                <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;GW&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;RegisterAck&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;1&quot;)
+responseArr.bodyGWVersion=props.get(&quot;responseVerification&quot;)(responseObj.body.GWVersion,&quot;1.0&quot;)
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString)
+}
+
+
+
+
+
+
+
+
+
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">javascript</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if send register failed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="registerAck response" enabled="true">
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <stringProp name="dataType">Text</stringProp>
+              <boolProp name="createNewConnection">false</boolProp>
+              <stringProp name="readTimeout">30000</stringProp>
+              <boolProp name="optional">false</boolProp>
+              <boolProp name="binaryPayload">false</boolProp>
+            </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+                <stringProp name="Scope.variable"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${index} ${threadId}</stringProp>
+                <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;GW&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;RegisterAck&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;1&quot;)
+responseArr.bodyGWVersion=props.get(&quot;responseVerification&quot;)(responseObj.body.GWVersion,&quot;1.0&quot;)
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">javascript</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">5000</stringProp>
+                <stringProp name="Assertion.scope">all</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if send register failed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="register retry counter" enabled="true">
+              <stringProp name="CounterConfig.start">1</stringProp>
+              <stringProp name="CounterConfig.end"></stringProp>
+              <stringProp name="CounterConfig.incr">1</stringProp>
+              <stringProp name="CounterConfig.name">counter</stringProp>
+              <stringProp name="CounterConfig.format"></stringProp>
+              <boolProp name="CounterConfig.per_user">false</boolProp>
+            </CounterConfig>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">2000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If register failure set to true" enabled="true">
+          <stringProp name="IfController.condition">${__javaScript((vars.get(&quot;registerFailure&quot;)==&quot;true&quot;))}</stringProp>
+          <boolProp name="IfController.evaluateAll">false</boolProp>
+        </IfController>
+        <hashTree>
+          <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="stop thread" enabled="true">
+            <stringProp name="BeanShellSampler.query">SampleResult.setStopThread(true)</stringProp>
+            <stringProp name="BeanShellSampler.filename"></stringProp>
+            <stringProp name="BeanShellSampler.parameters"></stringProp>
+            <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+          </BeanShellSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${__P(numberOfCallsPerThread)}</stringProp>
+        </LoopController>
+        <hashTree>
+          <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="callId" enabled="true">
+            <stringProp name="variableName">callId</stringProp>
+            <stringProp name="outputFormat"></stringProp>
+            <stringProp name="minimumValue">999</stringProp>
+            <stringProp name="maximumValue">99999</stringProp>
+            <stringProp name="randomSeed"></stringProp>
+            <boolProp name="perThread">true</boolProp>
+          </RandomVariableConfig>
+          <hashTree/>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="reset register counter " enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;counter&quot;, &quot;1&quot;)
+</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">prev.setIgnore()</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If there was some failure in previous iterations" enabled="true">
+            <stringProp name="IfController.condition">${__javaScript(vars.get(&quot;failure&quot;)==&quot;true&quot;)}</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+            <boolProp name="IfController.useExpression">true</boolProp>
+          </IfController>
+          <hashTree>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="do re-connection and registration" enabled="true"/>
+            <hashTree>
+              <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="threadId" enabled="true">
+                <stringProp name="variableName">threadId</stringProp>
+                <stringProp name="outputFormat"></stringProp>
+                <stringProp name="minimumValue">1</stringProp>
+                <stringProp name="maximumValue">9998</stringProp>
+                <stringProp name="randomSeed"></stringProp>
+                <boolProp name="perThread">true</boolProp>
+              </RandomVariableConfig>
+              <hashTree/>
+              <RandomVariableConfig guiclass="TestBeanGUI" testclass="RandomVariableConfig" testname="callIdForInternalRegister" enabled="true">
+                <stringProp name="variableName">callIdForInternalRegister</stringProp>
+                <stringProp name="outputFormat"></stringProp>
+                <stringProp name="minimumValue">999</stringProp>
+                <stringProp name="maximumValue">99999</stringProp>
+                <stringProp name="randomSeed"></stringProp>
+                <boolProp name="perThread">true</boolProp>
+              </RandomVariableConfig>
+              <hashTree/>
+              <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="Internal WebSocket Close" enabled="true">
+                <stringProp name="statusCode">1000</stringProp>
+              </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+              <hashTree>
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                  <stringProp name="ConstantTimer.delay">2000</stringProp>
+                </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings"/>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                  <boolProp name="Assertion.assume_success">true</boolProp>
+                  <intProp name="Assertion.test_type">16</intProp>
+                </ResponseAssertion>
+                <hashTree/>
+              </hashTree>
+              <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="Open Connection" enabled="true">
+                <boolProp name="TLS">true</boolProp>
+                <stringProp name="server">yk11kg2xse.execute-api.us-east-1.amazonaws.com</stringProp>
+                <stringProp name="port">443</stringProp>
+                <stringProp name="path">webrtc-ws-apigw</stringProp>
+              </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+              <hashTree>
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+                  <collectionProp name="HeaderManager.headers">
+                    <elementProp name="" elementType="Header">
+                      <stringProp name="Header.name">Authorization</stringProp>
+                      <stringProp name="Header.value">&quot;${__StringFromFile(${__P(tokenPathUrl)})}&quot;</stringProp>
+                    </elementProp>
+                  </collectionProp>
+                </HeaderManager>
+                <hashTree/>
+              </hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+              <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="register Controller" enabled="true"/>
+              <hashTree>
+                <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+                  <stringProp name="WhileController.condition">${__javaScript((vars.get(&quot;registerFailure&quot;)==&quot;true&quot; &amp;&amp; ${counter} &lt; 5),)}</stringProp>
+                </WhileController>
+                <hashTree>
+                  <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="true">
+                    <stringProp name="statusCode">1000</stringProp>
+                  </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+                  <hashTree>
+                    <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                      <stringProp name="ConstantTimer.delay">2000</stringProp>
+                    </ConstantTimer>
+                    <hashTree/>
+                    <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                      <collectionProp name="Asserion.test_strings"/>
+                      <stringProp name="Assertion.custom_message"></stringProp>
+                      <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                      <boolProp name="Assertion.assume_success">true</boolProp>
+                      <intProp name="Assertion.test_type">16</intProp>
+                    </ResponseAssertion>
+                    <hashTree/>
+                  </hashTree>
+                  <eu.luminis.jmeter.wssampler.OpenWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.OpenWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.OpenWebSocketSampler" testname="Open Connection" enabled="true">
+                    <boolProp name="TLS">true</boolProp>
+                    <stringProp name="server">yk11kg2xse.execute-api.us-east-1.amazonaws.com</stringProp>
+                    <stringProp name="port">443</stringProp>
+                    <stringProp name="path">webrtc-ws-apigw</stringProp>
+                  </eu.luminis.jmeter.wssampler.OpenWebSocketSampler>
+                  <hashTree/>
+                  <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to false" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;false&quot;) ;</stringProp>
+                  </JSR223Sampler>
+                  <hashTree>
+                    <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="script">prev.setIgnore()</stringProp>
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                    </JSR223PostProcessor>
+                    <hashTree/>
+                  </hashTree>
+                  <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="send register" enabled="true">
+                    <boolProp name="createNewConnection">false</boolProp>
+                    <boolProp name="TLS">false</boolProp>
+                    <stringProp name="server"></stringProp>
+                    <stringProp name="port">80</stringProp>
+                    <stringProp name="path"></stringProp>
+                    <boolProp name="binaryPayload">false</boolProp>
+                    <stringProp name="requestData"> {&quot;callId&quot;:&quot;${callIdForInternalRegister}bob-981${index}&quot;,&quot;messageId&quot;:&quot;1&quot;,&quot;source&quot;:&quot;srcUser${index}${threadId}@mavenir.com&quot;,&quot;destination&quot;:&quot;GW&quot;,&quot;ts&quot;:${__time()},&quot;type&quot;:&quot;Register&quot;,&quot;body&quot;:{&quot;protocolVersion&quot;:&quot;1.0&quot;,&quot;clientVersion&quot;:&quot;1.0&quot;,&quot;appSid&quot;:&quot;${randomAppSid}&quot;,&quot;deviceId&quot;:&quot;webtest&quot;,&quot;deviceType&quot;:&quot;ANDROID&quot;}}</stringProp>
+                    <stringProp name="readTimeout">32000</stringProp>
+                    <boolProp name="loadDataFromFile">false</boolProp>
+                    <stringProp name="dataFile"></stringProp>
+                  </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+                  <hashTree>
+                    <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                      <collectionProp name="Asserion.test_strings">
+                        <stringProp name="49586">200</stringProp>
+                      </collectionProp>
+                      <stringProp name="Assertion.custom_message"></stringProp>
+                      <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                      <boolProp name="Assertion.assume_success">false</boolProp>
+                      <intProp name="Assertion.test_type">8</intProp>
+                      <stringProp name="Scope.variable"></stringProp>
+                    </ResponseAssertion>
+                    <hashTree/>
+                    <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="parameters">${index} ${threadId}</stringProp>
+                      <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+
+responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+log.info(&quot;responseObj.source&quot;+responseObj.source)
+
+
+
+responseArr.action=props.get(&quot;responseVerification&quot;)(responseObj.action,&quot;Register&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;GW&quot;)
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+
+
+
+</stringProp>
+                      <stringProp name="scriptLanguage">javascript</stringProp>
+                    </JSR223Assertion>
+                    <hashTree/>
+                    <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                      <stringProp name="DurationAssertion.duration">5000</stringProp>
+                      <stringProp name="Assertion.scope">all</stringProp>
+                    </DurationAssertion>
+                    <hashTree/>
+                    <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="parameters">${index} ${callId}</stringProp>
+                      <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;GW&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;RegisterAck&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;1&quot;)
+responseArr.bodyGWVersion=props.get(&quot;responseVerification&quot;)(responseObj.body.GWVersion,&quot;1.0&quot;)
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString)
+}
+
+
+
+
+
+
+
+
+
+
+
+</stringProp>
+                      <stringProp name="scriptLanguage">javascript</stringProp>
+                    </JSR223Assertion>
+                    <hashTree/>
+                  </hashTree>
+                  <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if send register failed" enabled="true">
+                    <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+                    <boolProp name="IfController.evaluateAll">false</boolProp>
+                  </IfController>
+                  <hashTree>
+                    <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+                    </JSR223Sampler>
+                    <hashTree>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="script">prev.setIgnore()</stringProp>
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                  <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="registerAck response" enabled="true">
+                    <boolProp name="TLS">false</boolProp>
+                    <stringProp name="server"></stringProp>
+                    <stringProp name="port">80</stringProp>
+                    <stringProp name="path"></stringProp>
+                    <stringProp name="dataType">Text</stringProp>
+                    <boolProp name="createNewConnection">false</boolProp>
+                    <stringProp name="readTimeout">30000</stringProp>
+                    <boolProp name="optional">false</boolProp>
+                    <boolProp name="binaryPayload">false</boolProp>
+                  </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+                  <hashTree>
+                    <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                      <collectionProp name="Asserion.test_strings">
+                        <stringProp name="49586">200</stringProp>
+                      </collectionProp>
+                      <stringProp name="Assertion.custom_message"></stringProp>
+                      <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                      <boolProp name="Assertion.assume_success">false</boolProp>
+                      <intProp name="Assertion.test_type">8</intProp>
+                      <stringProp name="Scope.variable"></stringProp>
+                    </ResponseAssertion>
+                    <hashTree/>
+                    <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="parameters">${index} ${threadId}</stringProp>
+                      <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;GW&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;RegisterAck&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;1&quot;)
+responseArr.bodyGWVersion=props.get(&quot;responseVerification&quot;)(responseObj.body.GWVersion,&quot;1.0&quot;)
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+
+</stringProp>
+                      <stringProp name="scriptLanguage">javascript</stringProp>
+                    </JSR223Assertion>
+                    <hashTree/>
+                    <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                      <stringProp name="DurationAssertion.duration">5000</stringProp>
+                      <stringProp name="Assertion.scope">all</stringProp>
+                    </DurationAssertion>
+                    <hashTree/>
+                  </hashTree>
+                  <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if send register failed" enabled="true">
+                    <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+                    <boolProp name="IfController.evaluateAll">false</boolProp>
+                  </IfController>
+                  <hashTree>
+                    <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set register failure flag to true" enabled="true">
+                      <stringProp name="scriptLanguage">groovy</stringProp>
+                      <stringProp name="parameters"></stringProp>
+                      <stringProp name="filename"></stringProp>
+                      <stringProp name="cacheKey">true</stringProp>
+                      <stringProp name="script">vars.put(&quot;registerFailure&quot;, &quot;true&quot;) ;</stringProp>
+                    </JSR223Sampler>
+                    <hashTree>
+                      <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                        <stringProp name="cacheKey">true</stringProp>
+                        <stringProp name="filename"></stringProp>
+                        <stringProp name="parameters"></stringProp>
+                        <stringProp name="script">prev.setIgnore()</stringProp>
+                        <stringProp name="scriptLanguage">groovy</stringProp>
+                      </JSR223PostProcessor>
+                      <hashTree/>
+                    </hashTree>
+                  </hashTree>
+                  <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="true">
+                    <stringProp name="CounterConfig.start">1</stringProp>
+                    <stringProp name="CounterConfig.end"></stringProp>
+                    <stringProp name="CounterConfig.incr">1</stringProp>
+                    <stringProp name="CounterConfig.name">counter</stringProp>
+                    <stringProp name="CounterConfig.format"></stringProp>
+                    <boolProp name="CounterConfig.per_user">false</boolProp>
+                  </CounterConfig>
+                  <hashTree/>
+                  <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                    <stringProp name="ConstantTimer.delay">2000</stringProp>
+                  </ConstantTimer>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+                <stringProp name="IfController.condition">${__javaScript((vars.get(&quot;registerFailure&quot;)==&quot;true&quot;))}</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="BeanShell Sampler" enabled="true">
+                  <stringProp name="BeanShellSampler.query">SampleResult.setStopThread(true)</stringProp>
+                  <stringProp name="BeanShellSampler.filename"></stringProp>
+                  <stringProp name="BeanShellSampler.parameters"></stringProp>
+                  <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+                </BeanShellSampler>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+          </hashTree>
+          <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set failure flag to false" enabled="true">
+            <stringProp name="scriptLanguage">groovy</stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="script">vars.put(&quot;failure&quot;, &quot;false&quot;) ;</stringProp>
+          </JSR223Sampler>
+          <hashTree>
+            <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+              <stringProp name="cacheKey">true</stringProp>
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters"></stringProp>
+              <stringProp name="script">prev.setIgnore()</stringProp>
+              <stringProp name="scriptLanguage">groovy</stringProp>
+            </JSR223PostProcessor>
+            <hashTree/>
+          </hashTree>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="call start and end" enabled="true"/>
+          <hashTree>
+            <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="start call" enabled="true">
+              <boolProp name="createNewConnection">false</boolProp>
+              <boolProp name="TLS">false</boolProp>
+              <stringProp name="server"></stringProp>
+              <stringProp name="port">80</stringProp>
+              <stringProp name="path"></stringProp>
+              <boolProp name="binaryPayload">false</boolProp>
+              <stringProp name="requestData"> {&quot;source&quot;:&quot;srcUser${index}${threadId}@mavenir.com&quot;,&quot;destination&quot;:&quot;+123456789${index}@webrtc-staging.restcomm.com&quot;,&quot;callId&quot;:&quot;${callId}bob-981${index}&quot;,&quot;messageId&quot;:&quot;2&quot;,&quot;ts&quot;:${__time()},&quot;type&quot;:&quot;Call&quot;,&quot;body&quot;:{&quot;action&quot;:&quot;CallStart&quot;,&quot;reason&quot;:&quot;Join&quot;,&quot;sdp&quot;:&quot;v=0\r\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\r\ns=- c=IN IP4 10.174.20.152\r\nt=0 0\r\na=sendrecv\r\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\r\nc=IN IP4 10.174.20.152\r\na=rtpmap:96 AMR-WB/16000\r\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\r\na=rtpmap:97 AMR/8000\r\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\r\na=rtpmap:98 AMR/8000\r\na=fmtp:98 mode-set=7;max-red=0\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:99 telephone-event/16000\r\na=fmtp:99 0-15\r\na=rtpmap:100 telephone-event/8000\r\na=fmtp:100 0-15\r\na=maxptime:40\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\n\r\n&quot;,&quot;accessToken&quot;:&quot;access&quot;,&quot;PNSToken&quot;:&quot;16483746844931946&quot;}}
+</stringProp>
+              <stringProp name="readTimeout">32000</stringProp>
+              <boolProp name="loadDataFromFile">false</boolProp>
+              <stringProp name="dataFile"></stringProp>
+            </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+            <hashTree>
+              <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="startCall PreProcessor" enabled="true">
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters"></stringProp>
+                <boolProp name="resetInterpreter">false</boolProp>
+                <stringProp name="script">vars.put(&quot;startCallHeadersAssertionError&quot;, &quot;false&quot;) ;</stringProp>
+              </BeanShellPreProcessor>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="49586">200</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">8</intProp>
+                <stringProp name="Scope.variable"></stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+              <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                <stringProp name="DurationAssertion.duration">5000</stringProp>
+                <stringProp name="Assertion.scope">all</stringProp>
+              </DurationAssertion>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${index} ${threadId}</stringProp>
+                <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;2&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+responseArr.action=props.get(&quot;responseVerification&quot;)(responseObj.action,&quot;CallStart&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;+123456789&quot;+args[0]+&quot;@webrtc-staging.restcomm.com&quot;)
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">javascript</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+                <stringProp name="ConstantTimer.delay">10000</stringProp>
+              </ConstantTimer>
+              <hashTree/>
+              <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="parameters">${index} ${callId}</stringProp>
+                <stringProp name="script">var response = prev.getResponseDataAsString()
+log.info (&quot;startCall=======response: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index}+&quot;: &quot;+response);
+var responseObj=JSON.parse(response)
+
+
+if(responseObj.body)
+	{	
+	if(responseObj.body.action!=&quot;CallStatus&quot;&amp;&amp;responseObj.body.action!=&quot;Answer&quot;)
+		{
+		vars.put(&quot;startCallHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status, action: &quot;+responseObj.body.action+&quot;, response: &quot;+response)
+		}
+     }
+ else
+ {
+ 	if(responseObj.action!=&quot;CallStart&quot;)
+		{
+		vars.put(&quot;startCallHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage300(&quot;wrong status, action: &quot;+responseObj.action+&quot;, response: &quot;+response)
+		}
+ 	
+ }
+     
+
+
+
+
+
+
+
+</stringProp>
+                <stringProp name="scriptLanguage">javascript</stringProp>
+              </JSR223Assertion>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="ringing - If start call succeed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==true</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="Ringing response" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="dataType">Text</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <stringProp name="readTimeout">32000</stringProp>
+                <boolProp name="optional">false</boolProp>
+                <boolProp name="binaryPayload">false</boolProp>
+              </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+              <hashTree>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="ringing PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">vars.put(&quot;ringingHeadersAssertionError&quot;, &quot;false&quot;) ;</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="49586">200</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">8</intProp>
+                  <stringProp name="Scope.variable"></stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters">${index} ${threadId}</stringProp>
+                  <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;2&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;+123456789&quot;+args[0]+&quot;@webrtc-staging.restcomm.com&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;Call&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+responseArr.bodyAction=props.get(&quot;responseVerification&quot;)(responseObj.body.action,&quot;CallStatus&quot;)
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;2&quot;)
+responseArr.bodyStatusCode=props.get(&quot;responseVerification&quot;)(responseObj.body.statusCode,&quot;200&quot;)
+responseArr.bodyDescription=props.get(&quot;responseVerification&quot;)(responseObj.body.description,&quot;Ringing&quot;)
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+
+</stringProp>
+                  <stringProp name="scriptLanguage">javascript</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+                <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                  <stringProp name="DurationAssertion.duration">5000</stringProp>
+                  <stringProp name="Assertion.scope">all</stringProp>
+                </DurationAssertion>
+                <hashTree/>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters">${index} ${callId}</stringProp>
+                  <stringProp name="script">var response = prev.getResponseDataAsString()
+log.info (&quot;ringing=======response: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index}+&quot;: &quot;+response);
+var responseObj=JSON.parse(response)
+if(responseObj.body)
+	{	
+	if(responseObj.body.action!=&quot;CallStatus&quot;&amp;&amp;responseObj.body.action!=&quot;Answer&quot;)
+		{
+		vars.put(&quot;ringingHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status: &quot;+responseObj.body.action+&quot;, response: &quot;+response)
+		}
+     }
+ else
+ {
+ 	if(responseObj.action!=&quot;CallStart&quot;)
+		{
+		vars.put(&quot;ringingHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status: &quot;+responseObj.action+&quot;, response: &quot;+response)
+		}
+ 	
+ }
+     
+
+
+</stringProp>
+                  <stringProp name="scriptLanguage">javascript</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="ringing - if start call failed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;failure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="answer - if ringing succeed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==true&amp;&amp;${__javaScript(vars.get(&quot;failure&quot;)==&quot;false&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="answer response" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="dataType">Text</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <stringProp name="readTimeout">32000</stringProp>
+                <boolProp name="optional">false</boolProp>
+                <boolProp name="binaryPayload">false</boolProp>
+              </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+              <hashTree>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="answer PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">vars.put(&quot;answerHeadersAssertionError&quot;, &quot;false&quot;) ;</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="49586">200</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">8</intProp>
+                  <stringProp name="Scope.variable"></stringProp>
+                </ResponseAssertion>
+                <hashTree/>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters">${index} ${threadId}</stringProp>
+                  <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;2&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;+123456789&quot;+args[0]+&quot;@webrtc-staging.restcomm.com&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;Call&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+
+responseArr.bodyAction=props.get(&quot;responseVerification&quot;)(responseObj.body.action,&quot;Answer&quot;)
+responseArr.bodyRequestMessageId=props.get(&quot;responseVerification&quot;)(responseObj.body.requestMessageId,&quot;2&quot;)
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+</stringProp>
+                  <stringProp name="scriptLanguage">javascript</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+                <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                  <stringProp name="DurationAssertion.duration">5000</stringProp>
+                  <stringProp name="Assertion.scope">all</stringProp>
+                </DurationAssertion>
+                <hashTree/>
+                <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters">${index} ${callId}</stringProp>
+                  <stringProp name="script">var response = prev.getResponseDataAsString()
+log.info (&quot;ringingCall=======response: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index}+&quot;: &quot;+response);
+var responseObj=JSON.parse(response)
+if(responseObj.body)
+	{	
+	if(responseObj.body.action!=&quot;CallStatus&quot;&amp;&amp;responseObj.body.action!=&quot;Answer&quot;)
+		{
+		vars.put(&quot;answerHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status: &quot;+responseObj.body.action+&quot;, response: &quot;+response)
+		}
+     }
+ else
+ {
+ 	if(responseObj.action!=&quot;CallStart&quot;)
+		{
+		vars.put(&quot;answerHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status: &quot;+responseObj.action+&quot;, response: &quot;+response)
+		}
+ 	
+ }
+     
+
+
+
+
+
+</stringProp>
+                  <stringProp name="scriptLanguage">javascript</stringProp>
+                </JSR223Assertion>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="retry answer - if ringing succeed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==true&amp;&amp;${__javaScript(vars.get(&quot;failure&quot;)==&quot;false&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="retry answer response" enabled="true">
+                <boolProp name="TLS">false</boolProp>
+                <stringProp name="server"></stringProp>
+                <stringProp name="port">80</stringProp>
+                <stringProp name="path"></stringProp>
+                <stringProp name="dataType">Text</stringProp>
+                <boolProp name="createNewConnection">false</boolProp>
+                <stringProp name="readTimeout">15000</stringProp>
+                <boolProp name="optional">false</boolProp>
+                <boolProp name="binaryPayload">false</boolProp>
+              </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+              <hashTree/>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings"/>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+                <boolProp name="Assertion.assume_success">true</boolProp>
+                <intProp name="Assertion.test_type">16</intProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="answer - if ringing failed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;failure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="end call - If answer succeed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==true&amp;&amp;${__javaScript(vars.get(&quot;failure&quot;)==&quot;false&quot;)}</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if Appsid not 111111111" enabled="true">
+                <stringProp name="IfController.condition">${randomAppSid}!=&apos;111111111&apos;</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler" testname="end call" enabled="true">
+                  <boolProp name="createNewConnection">false</boolProp>
+                  <boolProp name="TLS">false</boolProp>
+                  <stringProp name="server"></stringProp>
+                  <stringProp name="port">80</stringProp>
+                  <stringProp name="path"></stringProp>
+                  <boolProp name="binaryPayload">false</boolProp>
+                  <stringProp name="requestData">{&quot;source&quot;: &quot;srcUser${index}${threadId}@mavenir.com&quot;,&quot;destination&quot;: &quot;+123456789${index}@webrtc-staging.restcomm.com&quot;,&quot;callId&quot;: &quot;${callId}bob-981${index}&quot;,&quot;messageId&quot;: &quot;3&quot;,&quot;ts&quot;: ${__time()},&quot;type&quot;: &quot;Call&quot;,&quot;body&quot;: {&quot;action&quot;: &quot;Terminate&quot;,&quot;statusCode&quot;: &quot;200&quot;,&quot;description&quot;: &quot;normal&quot;}}</stringProp>
+                  <stringProp name="readTimeout">32000</stringProp>
+                  <boolProp name="loadDataFromFile">false</boolProp>
+                  <stringProp name="dataFile"></stringProp>
+                </eu.luminis.jmeter.wssampler.RequestResponseWebSocketSampler>
+                <hashTree>
+                  <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="endCall PreProcessor" enabled="true">
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <boolProp name="resetInterpreter">false</boolProp>
+                    <stringProp name="script">vars.put(&quot;endCallHeadersAssertionError&quot;, &quot;false&quot;) ;</stringProp>
+                  </BeanShellPreProcessor>
+                  <hashTree/>
+                  <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="response code Assertion" enabled="true">
+                    <collectionProp name="Asserion.test_strings">
+                      <stringProp name="49586">200</stringProp>
+                    </collectionProp>
+                    <stringProp name="Assertion.custom_message"></stringProp>
+                    <stringProp name="Assertion.test_field">Assertion.response_code</stringProp>
+                    <boolProp name="Assertion.assume_success">false</boolProp>
+                    <intProp name="Assertion.test_type">8</intProp>
+                    <stringProp name="Scope.variable"></stringProp>
+                  </ResponseAssertion>
+                  <hashTree/>
+                  <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Duration Assertion" enabled="true">
+                    <stringProp name="DurationAssertion.duration">5000</stringProp>
+                    <stringProp name="Assertion.scope">all</stringProp>
+                  </DurationAssertion>
+                  <hashTree/>
+                  <JSR223Timer guiclass="TestBeanGUI" testclass="JSR223Timer" testname="JSR223 Timer" enabled="true">
+                    <stringProp name="scriptLanguage">groovy</stringProp>
+                    <stringProp name="parameters"></stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="script">return props.get(&quot;sleepCalculateAccordingAppSid&quot;)(${randomAppSid})</stringProp>
+                  </JSR223Timer>
+                  <hashTree/>
+                  <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters">${index} ${threadId}</stringProp>
+                    <stringProp name="script">var response = prev.getResponseDataAsString()
+log.info (&quot;endCall=======response: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index}+&quot;: &quot;+response);
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+
+responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;3&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+responseArr.action=props.get(&quot;responseVerification&quot;)(responseObj.action,&quot;Terminate&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;+123456789&quot;+args[0]+&quot;@webrtc-staging.restcomm.com&quot;)
+	
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   vars.put(&quot;endCallHeadersAssertionError&quot;, &quot;true&quot;) ;
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString+&quot; action: &quot;+responseObj.action+&quot;, response: &quot;+response)
+}
+
+
+
+
+
+
+
+</stringProp>
+                    <stringProp name="scriptLanguage">javascript</stringProp>
+                  </JSR223Assertion>
+                  <hashTree/>
+                  <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="false">
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters">${index} ${callId}</stringProp>
+                    <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+
+if(responseObj.body)
+{	
+	if(responseObj.body.action!=&quot;Answer&quot;)
+		{
+		 vars.put(&quot;endCallHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status: &quot;+responseObj.body.action+&quot;, response: &quot;+response)
+		}
+}
+ else
+ {
+ 	if(responseObj.action!=&quot;Terminate&quot;)
+		{
+		vars.put(&quot;endCallHeadersAssertionError&quot;, &quot;true&quot;) ;
+		AssertionResult.setFailure(true)
+     	AssertionResult.setFailureMessage(&quot;wrong status, action: &quot;+responseObj.action+&quot;, response: &quot;+response)
+		}
+ 	
+ }
+     
+
+//responseArr.action=props.get(&quot;responseVerification&quot;)(responseObj.action,&quot;Terminate&quot;)
+
+
+
+
+
+</stringProp>
+                    <stringProp name="scriptLanguage">javascript</stringProp>
+                  </JSR223Assertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+              <IfController guiclass="IfControllerPanel" testclass="IfController" testname="if Appsid 111111111" enabled="false">
+                <stringProp name="IfController.condition">${randomAppSid}==&apos;111111111&apos;</stringProp>
+                <boolProp name="IfController.evaluateAll">false</boolProp>
+              </IfController>
+              <hashTree>
+                <eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler" testname="end call response" enabled="true">
+                  <boolProp name="TLS">false</boolProp>
+                  <stringProp name="server"></stringProp>
+                  <stringProp name="port">80</stringProp>
+                  <stringProp name="path"></stringProp>
+                  <stringProp name="dataType">Text</stringProp>
+                  <boolProp name="createNewConnection">false</boolProp>
+                  <boolProp name="optional">false</boolProp>
+                  <boolProp name="binaryPayload">false</boolProp>
+                </eu.luminis.jmeter.wssampler.SingleReadWebSocketSampler>
+                <hashTree>
+                  <JSR223Assertion guiclass="TestBeanGUI" testclass="JSR223Assertion" testname="headers Assertions" enabled="true">
+                    <stringProp name="cacheKey">true</stringProp>
+                    <stringProp name="filename"></stringProp>
+                    <stringProp name="parameters">${index} ${callId}</stringProp>
+                    <stringProp name="script">var response = prev.getResponseDataAsString()
+var responseObj=JSON.parse(response)
+
+var responseArr={}
+
+
+//responseArr.messageId=props.get(&quot;responseVerification&quot;)(responseObj.messageId,&apos;1&apos;)
+responseArr.source=props.get(&quot;responseVerification&quot;)(responseObj.source,&quot;+123456789@webrtc-staging.restcomm.com&quot;)
+responseArr.destination=props.get(&quot;responseVerification&quot;)(responseObj.destination,&quot;srcUser&quot;+args[0]+args[1]+&quot;@mavenir.com&quot;)
+responseArr.type=props.get(&quot;responseVerification&quot;)(responseObj.type,&quot;Call&quot;)	
+
+responseArr.bodyAction=props.get(&quot;responseVerification&quot;)(responseObj.body.action,&quot;Terminate&quot;)
+responseArr.bodyRequestStatusCode=props.get(&quot;responseVerification&quot;)(responseObj.body.statusCode,&quot;200&quot;)
+responseArr.bodyRequestStatusDescription=props.get(&quot;responseVerification&quot;)(responseObj.body.description,&quot;Normal&quot;)
+
+
+
+
+var failuresSummary= props.get(&quot;failuresSummary&quot;)(responseArr)
+
+if(failuresSummary.isFailed)
+{
+   AssertionResult.setFailure(true)
+   AssertionResult.setFailureMessage(failuresSummary.failuresString)
+}
+
+
+
+
+
+
+
+</stringProp>
+                    <stringProp name="scriptLanguage">javascript</stringProp>
+                  </JSR223Assertion>
+                  <hashTree/>
+                </hashTree>
+              </hashTree>
+            </hashTree>
+            <IfController guiclass="IfControllerPanel" testclass="IfController" testname="end call - If answer failed" enabled="true">
+              <stringProp name="IfController.condition">${JMeterThread.last_sample_ok}==false</stringProp>
+              <boolProp name="IfController.evaluateAll">false</boolProp>
+            </IfController>
+            <hashTree>
+              <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set failure flag to true" enabled="true">
+                <stringProp name="scriptLanguage">groovy</stringProp>
+                <stringProp name="parameters"></stringProp>
+                <stringProp name="filename"></stringProp>
+                <stringProp name="cacheKey">true</stringProp>
+                <stringProp name="script">vars.put(&quot;failure&quot;, &quot;true&quot;) ;</stringProp>
+              </JSR223Sampler>
+              <hashTree>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="script">prev.setIgnore()</stringProp>
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="Failures log documnet" enabled="true">
+              <stringProp name="filename"></stringProp>
+              <stringProp name="parameters">${index} ${callId}</stringProp>
+              <boolProp name="resetInterpreter">false</boolProp>
+              <stringProp name="script"> if (${JMeterThread.last_sample_ok}==false) {
+ 	if(${__javaScript(vars.get(&quot;ringingHeadersAssertionError&quot;)==&quot;true&quot;)})
+ 	{
+ 		log.info (&quot;Headers assertion Error=======ringing fail for user: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index});
+ 	}
+ 	else if(${__javaScript(vars.get(&quot;answerHeadersAssertionError&quot;)==&quot;true&quot;)})
+    {
+     	log.info (&quot;Headers assertion Error=======answer fail for user: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index});
+     }
+     else if(${__javaScript(vars.get(&quot;endCallHeadersAssertionError&quot;)==&quot;true&quot;)})
+     {
+         log.info (&quot;Headers assertion Error=======endCall fail for user: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index});
+     }
+    else if(${__javaScript(vars.get(&quot;startCallHeadersAssertionError&quot;)==&quot;true&quot;)})
+     {
+         log.info (&quot;Headers assertion Error=======startCall fail for user: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index});
+     }
+ 	else
+ 	{
+ 		log.info (&quot;TimeOut Error======= for user: &quot;+&quot;srcUser&quot;+${index}+${threadId}+&quot;@mavenir.com, callID: &quot;+${callId}+&quot;bob-981&quot;+${index});
+ 	}
+}
+</stringProp>
+            </BeanShellPostProcessor>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <eu.luminis.jmeter.wssampler.CloseWebSocketSampler guiclass="eu.luminis.jmeter.wssampler.CloseWebSocketSamplerGui" testclass="eu.luminis.jmeter.wssampler.CloseWebSocketSampler" testname="WebSocket Close" enabled="true">
+          <stringProp name="statusCode">1000</stringProp>
+        </eu.luminis.jmeter.wssampler.CloseWebSocketSampler>
+        <hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">2000</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings"/>
+            <stringProp name="Assertion.custom_message"></stringProp>
+            <stringProp name="Assertion.test_field">Assertion.response_message</stringProp>
+            <boolProp name="Assertion.assume_success">true</boolProp>
+            <intProp name="Assertion.test_type">16</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="AppSid CSV file" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">${__P(appSidCsvPath)}</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">false</boolProp>
+          <stringProp name="variableNames">randomAppSid</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="set failure flag to false" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">vars.put(&quot;failure&quot;, &quot;false&quot;) ;</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="JSR223 PostProcessor" enabled="true">
+            <stringProp name="cacheKey">true</stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="script">prev.setIgnore()</stringProp>
+            <stringProp name="scriptLanguage">groovy</stringProp>
+          </JSR223PostProcessor>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

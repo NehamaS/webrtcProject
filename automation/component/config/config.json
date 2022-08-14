@@ -1,0 +1,74 @@
+{
+  "logger": {
+    "level": "info"
+  },
+  "db": {
+    "dbType": "INMEM",
+    "prefix": "webrtc-gateway"
+  },
+  "aws": {
+    "mock": {
+      "db": true,
+      "ws": true,
+      "webSocketUrl": "http://127.0.0.1:6060/actions",
+      "fullComponentTest": true
+    },
+    "region": "us-east-1",
+    "webSocketUrl": "http://127.0.0.1:6060/actions",
+    "fullComponentTest": true
+  },
+  "simulator": {
+    "restcomm": {
+      "enable": false,
+      "mode": "back2back",
+      "code": 200,
+      "desc": "OK"
+    },
+    "db": false,
+    "wsDispatcher": false
+  },
+  "dynamoDb": {
+    "endpoint": "http://10.106.9.63:31566",
+    "credentials": {
+      "accessKeyId": "test",
+      "secretAccessKey": "test"
+    },
+    "sipTable": {
+      "tableName": "webrtc_sip",
+      "userSession": {
+        "type": "userSession",
+        "ttl": 86400
+      },
+      "setSipRequest": {
+        "type": "setSipRequest",
+        "ttl": 35
+      },
+      "setAck": {
+        "type": "setAck",
+        "ttl": 35
+      }
+    },
+    "usersTable": {
+      "tableName": "webrtc_users",
+      "ttl": 84600
+    },
+    "sesssionTable": {
+      "tableName": "webrtc_sessions",
+      "ttl": 7200
+    },
+    "actionTable": {
+      "tableName": "webrtc_actions",
+      "ttl": 7200
+    }
+  },
+  "auth": {
+    "token": {
+      "use": false
+    }
+  },
+  "restcomm": {
+    "url": {
+      "enabled": true
+    }
+  }
+}

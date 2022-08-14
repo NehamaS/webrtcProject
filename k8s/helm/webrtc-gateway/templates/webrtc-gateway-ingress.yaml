@@ -1,0 +1,26 @@
+{{- if not .Values.global.runtime.aws }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: webrtc-gateway-ingress
+  namespace: mvnr-mtcil1-appln-ngn-mcu
+  annotations:
+    nginx.org/websocket-services: "webrtc-gateway-ws"
+spec:
+  defaultBackend:
+    service:
+      name: webrtc-gateway-ws
+      port:
+        number: 80
+  rules:
+  - host: webrtc-gateway-mcu-staging-common.il-labs.mavenir.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: webrtc-gateway-ws
+            port:
+              number: 5210
+{{- end }}

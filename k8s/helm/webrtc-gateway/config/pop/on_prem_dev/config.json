@@ -1,0 +1,28 @@
+{
+  "logger": {
+    "logLevel": "info"
+  },
+  "sip": {
+    "contact": "webrtc-sip.il-labs.mavenir.com"
+  },
+  "websocket" : {
+    "ws": {
+      "enabled": true
+    },
+    "wss": {
+      "enabled": false
+    }
+  },
+  "dynamodb-local" : {
+    "enabled": true,
+    "region": "local",
+    "endpoint": "http://dynamodb-local.dynamodb.svc.cluster.local:8000",
+    "credentials": {
+      "accessKeyId": "test",
+      "secretAccessKey": "test"
+    }
+  },
+  "mcu": {
+    "fqdn": "sipsvc-dev.il-labs.mavenir.com"
+  }
+}

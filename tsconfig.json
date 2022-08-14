@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "declaration": true,
+        "skipLibCheck": true,
+        "removeComments": true,
+        "allowJs": false,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es2017",
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "outDir": "./dist",
+        "baseUrl": "./",
+        "paths": {
+            "@if/*": [
+                "if/gen-nodejs/*"
+            ],
+            "@config/*": [
+                "config/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "if",
+        "lib"
+    ]
+}

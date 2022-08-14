@@ -1,0 +1,17 @@
+{
+  "aws": {
+    "webSocketUrl": "1nkgbu7d6d.execute-api.us-east-1.amazonaws.com/webrtc-ws-apigw",
+    "region": "us-east-1"
+  },
+  "sip": {
+    "contact": "webrtc-sip.il-labs.mavenir.com"
+  },
+  "websocket" : {
+    "ws": {
+      "enabled": "true"
+    }
+  },
+  "mcu": {
+      "fqdn": "sipsvc-dev.il-labs.mavenir.com"
+  }
+}

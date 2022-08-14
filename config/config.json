@@ -1,0 +1,120 @@
+{
+  "logger": {
+    "logLevel": "info"
+  },
+  "shutdown": {
+    "enabled": true,
+    "timeout": 35
+  },
+  "health": {
+    "readyThreshold": {
+      "maxMemory": 2048,
+      "cpuUsage": 80
+    }
+  },
+  "db": {
+    "dbType": "INMEM",
+    "prefix": "webrtc-gateway"
+  },
+  "userAgent": "Restcomm WebRTC Demo/2.3.2-274",
+  "aws": {
+    "webSocketUrl": "dummy",
+    "region": "us-east-1"
+  },
+  "dynamoDb": {
+    "endpoint": "dynamodb.us-east-1.amazonaws.com",
+    "credentials": {
+      "accessKeyId": "test",
+      "secretAccessKey": "test"
+    },
+    "sipTable": {
+      "tableName": "webrtc_sip",
+      "userSession": {
+        "type": "userSession",
+        "ttl": 86400
+      },
+      "setSipRequest": {
+        "type": "setSipRequest",
+        "ttl": 35
+      },
+      "setAck": {
+        "type": "setAck",
+        "ttl": 35
+      }
+    },
+    "usersTable": {
+      "tableName": "webrtc_users",
+      "ttl": 84600
+    },
+    "sesssionTable": {
+      "tableName": "webrtc_sessions",
+      "ttl": 7200
+    },
+    "actionTable": {
+      "tableName": "webrtc_action",
+      "ttl": 7200
+    }
+  },
+  "auth": {
+    "token": {
+      "use": true,
+      "persist": true
+    },
+    "domain": {
+      "allow": false,
+      "domain": "webrtc.cpass.com"
+    }
+  },
+  "restcomm": {
+    "url": {
+      "enabled": false,
+      "fqdn": "dev.restcomm.com"
+    }
+  },
+  "mcu": {
+    "fqdn": "127.0.0.1:5080"
+  },
+  "sendWsMessage": {
+    "retries": 2,
+    "minTimeout": 1000
+  },
+  "one2one": {
+    "callIdSuffix": "_leg2"
+  },
+  "pushNotification": {
+    "enabled": false,
+    "restcommConfig": false,
+    "title": "MAVENIR",
+    "body": "default",
+    "timeout": 1000,
+    "retry": 20,
+    "clientTimerFlag": false,
+    "clientTimer": 300000
+  },
+  "cdr": {
+    "enabled": false,
+    "path": "./cdr",
+    "filename": "cdr.log",
+    "size": "20M",
+    "interval": "1h",
+    "maxFiles": 72
+  },
+  "websocket" : {
+    "ws": {
+      "enabled": false
+    },
+    "wss": {
+      "enabled": false
+    }
+  },
+  "dynamodb-local" : {
+    "enabled": false,
+    "region": "local",
+    "endpoint": "http://localhost:8000",
+    "credentials": {
+      "accessKeyId": "test",
+      "secretAccessKey": "test"
+    }
+  }
+
+}

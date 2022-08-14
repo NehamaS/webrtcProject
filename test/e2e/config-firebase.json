@@ -1,0 +1,81 @@
+{
+  "logger": {
+    "level": "info"
+  },
+  "health": {
+    "enable": false
+  },
+  "db": {
+    "dbType": "INMEM",
+    "prefix": "web-rtc-gateway"
+  },
+  "userAgent": "Restcomm WebRTC Demo/2.3.2-274",
+  "restcomm": {
+    "url": "1800-777-777@192.168.0.118",
+    "port": 5080
+  },
+  "aws": {
+    "mock": {
+      "db": true,
+      "ws": true,
+      "webSocketUrl": "http://127.0.0.1:8088/ws"
+    },
+    "webSocketUrl": "8ndc53x5xg.execute-api.us-east-1.amazonaws.com/integration",
+    "region" : "us-east-1"
+  },
+  "dynamoDb": {
+    "endpoint": "http://10.106.9.63:31566",
+    "credentials": {
+      "accessKeyId": "test",
+      "secretAccessKey": "test"
+    },
+    "sipTable": {
+      "tableName": "webrtc_sip",
+      "userSession": {
+        "type": "userSession",
+        "ttl": 86400
+      },
+      "setSipRequest": {
+        "type": "setSipRequest",
+        "ttl": 35
+      },
+      "setAck": {
+        "type": "setAck",
+        "ttl": 35
+      }
+    },
+    "usersTable": {
+      "tableName": "webrtc_users",
+      "ttl": 84600
+    },
+    "sesssionTable": {
+      "tableName": "webrtc_sessions",
+      "ttl": 7200
+    },
+    "actionTable": {
+      "tableName": "webrtc_action",
+      "ttl": 7200
+    }
+  },
+  "pushNotification": {
+    "enabled": true,
+    "timeout": 1000,
+    "retry": 20,
+    "clientTimerFlag": false,
+    "clientTimer": 300000
+  },
+  "auth": {
+    "token": {
+      "use": true,
+      "persist": true
+    },
+    "domain": {
+      "allow": false,
+      "domain": "webrtc.cpass.com"
+    }
+  },
+  "sip": {
+    "contact": "e2e.webrtc.gw.com"
+  }
+
+}

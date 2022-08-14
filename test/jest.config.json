@@ -1,0 +1,20 @@
+{
+    "moduleFileExtensions": [
+        "js",
+        "json",
+        "ts"
+    ],
+    "roots": [
+        "<rootDir>"
+    ],
+    "testEnvironment": "node",
+    "testRegex": ".spec.ts$",
+    "transform": {
+        "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "modulePathIgnorePatterns": ["<rootDir>/dist/"],
+    "testPathIgnorePatterns": ["<rootDir>/e2e/","<rootDir>/dist/","<rootDir>/login/"],
+    "moduleNameMapper": {
+        "^@config(.*)$": "<rootDir>/config$1"
+    }
+}

@@ -1,0 +1,232 @@
+[2022-06-06T14:19:56.761] [DEBUG] default - I will be logged in all-the-logs.log
+[2022-06-06T14:19:56.764] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-06T14:19:59.394] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiI5ZWZiYTk2Zi03YjhkLTQ3MTAtOTBkYi1lYzQ2MjY2MTFlN2EiLCJldmVudF9pZCI6IjVjZWZjNTZlLTJkOWItNDYyZC04NGU3LWIxY2RlZTkxYjhmOCIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1MTQzOTgsImV4cCI6MTY1NDUxNzk5OCwiaWF0IjoxNjU0NTE0Mzk4LCJqdGkiOiJhNzg1ZGViMy1hOGIxLTQyZTQtYWViZS0xMmE0NTY0MGJiMGEiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.lqia1-VpQT5d_LrKy4tkxx4VmTOOZIuxGpQ69pog-4aTmD-_mLyRqemHEYHKlPOLH926EYQe4KQ8c5JEOb0Mrv21ZqBJp3cf3OfvaRpfV5dK25KtyafpSYNTxaY9e-Q5bJHP_dssdDGJvG34N50EMUEfgiYdYGeQg2kLiMuGQ6-cQ3PO6UzGhVK12lYb8r9MBKaQc12G2vczJklrdoXfUTsDRc5PH_iOx5PbO8gqQOiFoS4BwSfHzDNEGqZ4oGhNO8ht6W6au95caLzUlSWBbVsoqSpwsLqoh_PqI9QhW6rh8B1W8VOmuqrRPxBhED4OOnh6veQ131OoGhHpzyBPUA","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiOWVmYmE5NmYtN2I4ZC00NzEwLTkwZGItZWM0NjI2NjExZTdhIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNWNlZmM1NmUtMmQ5Yi00NjJkLTg0ZTctYjFjZGVlOTFiOGY4IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1MTQzOTgsIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NTE3OTk4LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTE0Mzk4LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjI3MjZmMzAzLWVlZjUtNDA1Ni04NmNiLTZlOTg4YTI4OTg2ZCIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.SSJCVvXwY29occ2kZtBTyfQsOwWAfGWl8J_lOZyBHkmO476XSArYD90n1dfhH_qR8aXNt24hA0k2Pt5exGMDcGqdDnzGg4EyA-YgI8ESM-NnFQfJCMgvunC-R53O6V8rhUcSXIWzrLj2z87Gdn37sg8yrpol2NqmlaH4JrjJgwRuIb2Xul1Qty3KYUAqd7jUB6v2yGidlhmh7CeA9TupBN9L2zKC349GU4S_P5hEX6dlRJBRPWQiTsozxKYt1dRX9XbETUt4tD3NJf4BMesbG3lC8cepiV-BZUriGzbax0dRifE79sZ0dz1722Y3bu0bOHfUPApczHbgVII-lZjVnQ","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.CFxrlldNA0qVaFHTznEdhXGLW0tm_rwyalfdE-EAW63parypnVdl9r-vlAG_IteDLLSNRgbY9oXKBbKhocQ9rX0Ct9M073kyyGMhdjTb_vEa1O-j-g-gc0nsSWSlz5A8X6Sl_4RDcBYAiAQ6d20BMfjXsjI1Aj2IKy-4aVd135PiNRUeooyyiOhCuiO2IZduSHNbEbPLw23nhXK3HFCo-cDt6U4DNWr6eS5-TLOl_iWvJr-jNBgndQNmEma4SxVHII1e_HXRXkshTX7jgQTtDXNbzp2jdo7i82Od8RQ2B9tvjzbjXKIeiELD0H58VOeLqgqW19u4Aka8XYfTTD2Zvw.hkTgccbD9tp9Ses3.RKGW8TYc7vMMQQcxc5D9OzMZ0725GEggZZjsgX7eQoh7nn7QZdX_yvaPn71NX62x8U_KsMKj75XWwUz3HelbQS3AgMMSUUqxmu753zB1sDJ50lgAu6CA9Coij6a9ENg9r2l4R4q5_v2b0xeE60djqXUzDAb8OUjqZtN3T-JQvSLL--oHLdG1N9zZnaIy2ng5ZCCvUGQQ4iH-bUT5aW6cZOe3mvEITA86T5gJaC77BBSOWk1Svp3kXrgBVZA6x5Si_a9dxicxCbRV-0-WmtM9O86h0PfaRUFZkR1agL51Fu6F5uA2w9YHg6nHdyBTQqrvm09qYF3Wv-6EQGPRpjx3ud-p4kt4WWz6pUvQRT12G6Qzp1xUkbu3Bw7PaqM_XfcPdmNnWeRvYeKHnpVcxECp8RIvph-0LuL-EVk9dLgTMuwi1BabVKQ_Mpbz3TwzHxyMmAhLjasKNcOsEQxOFBokmHlo3WYLCcC14BL-y_JhAtfgOsLqKRaxKsp2ymnvzCvfeU_QHnJ1SqqArx8Aop3SauEObN_9lfy4OVKGfROBVge2YL6lDQb4NwZ6FMGDzqnT79JCIQL47kuTCb76hinhBIfF4sN1nsU0OcEN1QNiea_U8G1wznUu_uSChellHzjhERPMMx4EqrShtIIF5lv-mZMmwTyqet4_bMai1rfea6txgBKDONpVF25wxYh8m2YtpM-0PDlD6bnhe-I_AuUzRfopFhpvxlUjzN-K1IFw53RdcezYjL0De8hovnf0XO8DxNnpn8bwI3zV1gmanzYUbotwkklO_odbRcO_J0FvfyMUKfogvxQwK5d7GvVm8PArwkHeNeu0zxQppf14n7UlVPLczxHNORJHYoXKDLkJy7mzIoSeEhM5Y1CaRM-VbM1EAMoWFIMOGGduowwZJ-rkLrtsgsPuMxOr-rwIpb6BZ6hF6UDbNQ6hZpPJEUA20xUOfVJsvqPfoScViAisf1EcwgT_4vy-kbc_NxmiylgEX3zDSvUMcDMqEzB2DZAXSIo8qwcbipxRzej08o3cIdmTbFZJeHeN-HRYY6xB0NWVlGQvFIZPF7UuGZJNcnTTi8Kka6GmhmsOUfIeNo67T-h5cy5elN5pQiGnmutcvApoE0XIFzV-klAEzyJspZ_w_tPDWxNRVDhsrAmuGP6TefVyx-idVyiCVWTzwNI5YAjUNF64Y5yGcFOK-dOZt2sDqn51H0Y1ONFg1Iyt4FA9F1dcsnyAhg-InrHGVw6LGGTNeFlZvPgnzPDJPm-S-S09sYIKBCj0JXqRO8-Th6K2Puc0JstGuuTjrKk3dW_2P9MGnKQP1rCh7jCllHLv.MW4YMRuTAfzsKFZysnlbAA"}'
+}
+[2022-06-06T14:19:59.395] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-06T14:20:00.161] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-06T14:20:00.163] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16545144001628900","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654514400163,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16545144001628167","PNSToken":"7155eb09-9e94-43ea-8cac-1d4822717517","deviceType":"ANDROID"}}'
+}
+[2022-06-06T14:20:00.171] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-06T14:20:00.355] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16545144001628900","messageId":"1","action":"Register"}'
+}
+[2022-06-06T14:20:00.524] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16545144001628900","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654514400348,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-06T14:20:00.532] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16545144001628900","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654514400348,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-06T14:20:00.533] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-06T14:20:00.535] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545144001628900","messageId":"2","ts":1654514400535,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"95cff545-b061-4a9c-8a8b-1e7c5873e787"}}'
+}
+[2022-06-06T14:20:00.536] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-06T14:20:00.780] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545144001628900","messageId":"2","action":"CallStart"}'
+}
+[2022-06-06T14:20:01.096] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545144001628900","ts":1654514400891,"type":"Call","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-06T14:20:01.101] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545144001628900","ts":1654514400891,"type":"Call","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-06T14:20:01.103] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-06T14:20:01.338] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545144001628900","ts":1654514401127,"type":"Call","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654514401048 1 IN IP4 54.158.240.15\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.240.15\\r\\nt=0 0\\r\\nm=audio 59658 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.240.15\\r\\na=sendrecv\\r\\na=rtcp:59659 IN IP4 54.158.240.15\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:2762149651 cname:jmZji33QaiKW4czQ\\n","service":"P2A"}}'
+}
+[2022-06-06T14:20:01.340] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545144001628900","ts":1654514401127,"type":"Call","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654514401048 1 IN IP4 54.158.240.15\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.240.15\\r\\nt=0 0\\r\\nm=audio 59658 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.240.15\\r\\na=sendrecv\\r\\na=rtcp:59659 IN IP4 54.158.240.15\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:2762149651 cname:jmZji33QaiKW4czQ\\n","service":"P2A"}}'
+}
+[2022-06-06T14:20:01.342] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-06T14:20:01.342] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545144001628900","messageId":"3","ts":1654514401342,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-06T14:20:01.512] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545144001628900","messageId":"3","action":"Terminate"}'
+}
+[2022-06-06T14:20:02.344] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-06T14:20:02.347] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client CLOSE: {"code":1006,"reason":"","clean":false}'
+}
+[2022-06-06T14:21:47.470] [DEBUG] default - I will be logged in all-the-logs.log
+[2022-06-06T14:21:47.472] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'cognitoAuth',
+  action: 'Get token from Cognito'
+}
+[2022-06-06T14:21:50.051] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'The tokenID is: {"accessToken":"eyJraWQiOiJHYTk1bzZHSEc5QU5xeFJ3bkRoZHZyZ20xYnRjelNiV1BUOTBnamtyZ2k4PSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjbGllbnRfaWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsIm9yaWdpbl9qdGkiOiIwZjJmZDM5Yy0zOTQ0LTQ1YWUtYTM3Yi1kMmE2NGM3OGQ3OWQiLCJldmVudF9pZCI6IjY2ZjQ0MTg1LWU1YmQtNDRmNy04YzIwLTBkYTY2ZmJkZjRjZSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoiYXdzLmNvZ25pdG8uc2lnbmluLnVzZXIuYWRtaW4iLCJhdXRoX3RpbWUiOjE2NTQ1MTQ1MDksImV4cCI6MTY1NDUxODEwOSwiaWF0IjoxNjU0NTE0NTA5LCJqdGkiOiIwZjA4ZjMyNC1kMGUxLTQyM2ItOGMzNC00NWUxMjg3MTAyYTUiLCJ1c2VybmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UifQ.hkyITTvj0WQWJnZ4HJUJLXrYBNyD3_uHITp4nuix7UBQ5PrYZcRUdPk7QDtNFnFKrxqM4tjoya2DH5_8bQz8Pjjx5mJZggCGaZKryKZWyjDE28-WWUR6w8vuViF7eQci-O9Tb5aUlJ2uJ-KsPcsRezqnbvPxOcyNLAtKU9NeAzksCx9e4L3N5tN7iMmcJWjw8cYTjqFn1uXu2ayVQdalRKQWuvmlHoMPfIn648D7ly_WxKPr2XGgZ7uBOMTkqNMabt7jcB0OBxwAwMTG2-s588IlNSSiYPpH0j2Dr_pG8KYMRIGcEqZcZSE3TaAfcRQqKqGD6LH5q6v42QY-oM3Ivw","idToken":"eyJraWQiOiJNY2ZGTUdXNzNDYklKRFBpcGFpTUU0XC92cmE5aHN2ejAzSHo1ZVA2T2RoTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJlZjQyYTJhNC00YjVjLTQ4N2YtOThjOC04ZDllNmNmZDcxNzUiLCJjb2duaXRvOmdyb3VwcyI6WyJDUFwvQWRtaW5pc3RyYXRvciJdLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiY3VzdG9tOmFwcGxpY2F0aW9uU2lkIjoiQVA0NDM0MzU1dG9tZXIiLCJjdXN0b206YWNjb3VudFNpZCI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0xLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMV9JeGhBWGt1elgiLCJjdXN0b206b3JnYW5pemF0aW9uU2lkIjoiT1JkNzNhYWE0NWE4NzU0NjYzOTFmZGRkOTA0MTlmNDE3NiIsImNvZ25pdG86dXNlcm5hbWUiOiJBQzNjNWI0MTc3ZTVmZGQ4MTM3MjBiYzBkNmRkN2YwNTdlIiwiZ2l2ZW5fbmFtZSI6IkFLM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UiLCJvcmlnaW5fanRpIjoiMGYyZmQzOWMtMzk0NC00NWFlLWEzN2ItZDJhNjRjNzhkNzlkIiwiY29nbml0bzpyb2xlcyI6WyJhcm46YXdzOmlhbTo6NjAwODczMDgwNzM2OnJvbGVcL2NvZ25pdG8tY3AtYWRtaW5pc3RyYXRvci1yb2xlX3VzLWVhc3QtMSJdLCJhdWQiOiIzODg5dmMyajA4bm44NmxjYm9xNDVuNm1iMSIsImV2ZW50X2lkIjoiNjZmNDQxODUtZTViZC00NGY3LThjMjAtMGRhNjZmYmRmNGNlIiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2NTQ1MTQ1MDksIm5hbWUiOiJXZWJSVEMgRGV2IiwiZXhwIjoxNjU0NTE4MTA5LCJjdXN0b206cm9sZSI6IkNQXC9BZG1pbmlzdHJhdG9yIiwiaWF0IjoxNjU0NTE0NTA5LCJmYW1pbHlfbmFtZSI6IkFDM2M1YjQxNzdlNWZkZDgxMzcyMGJjMGQ2ZGQ3ZjA1N2UtVVMxNzFhYWM2ODcyY2U5ODI1OGJmOWNkZDE0N2E4NTg2NSIsImp0aSI6IjYwYTJmNjYyLTNlZjUtNGU3Mi1iMDg2LWQwZDgzMTc2ODYxZCIsImVtYWlsIjoid2VicnRjLmRldkBtYXZlbmlyLmNvbSJ9.bbkWMEurTA4s_FtS7WY6BSHcKIebRq5rcxRYyFU-zi47GSS4ICnlhFyBiHH-7fR_s0r6j-mDH5HEZGbqtqmapTaU3AHfNqQbYr5-OrOBf3Bg9zs8HgltvcoECi0ZJUd3Kd1Wdru-gvywwI5pyCdCnb-XMZPxxt_aD_bVm9odNpxjgWH2w8DiIV-8M95BP0Ijx4LP-5Cu5iG8koAoNEY25S4Ho1huvlY0EtpNwZsw30Fc8HV4G3hMRXuFXvwtKzaFExj9wersly2R2tk2Fye1K9mpnlpPUBEnOdPwU4IJ5VP-dQHMgQxMk5qYLlnTEJW3BvOHfrI4yw1J5Nz-i1ZC7Q","refreshToken":"eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.gsB551JPqKPzqMhW8CHaaYI7Z4Dvpk1WXZ8v8AmhFGozvf-zFsqnNgEiMM5ZGO4ZwErY23Fbf6FPKw26lZ7S4e6d73UjdPiD1ABoQ6D87chHXbfjo5yDJZRXXnckRPNyiFroDfkh5aLmTjsps3XBOuqE0XBQ7y0shbYpnfWf9WlwYV9NlVM-KW1cxMOZWaz88OdLVGnpOiMI_DeVb2E9Sh8npRKGyB27-KpEcVe-naO-TTFWFTElWkXfukBdaG8wxhU88mbkaiH0dHr9dSjG9_OdfNpvAKcicDTFu59EyNV_c-Fuu4cgCGEg40Vcn-do3P8inr15Gxht_tCCUcUhPw.IhzyKuclbhg8seRm.hinkWXVPLIjatNRmTmyqXewqVCAf4GWUrbMHzOuLXxMgyKwG6TRYPmaCjvVSJSJPexHVIaqGeVk9e0ueIhc6j8_dZppc0IFIFNB7jy3n65HpJvw7KavHEtyfNNxlK-G5VkSEG8ljrfCdpVTWquFp1qVWvEiy_XWiKOf9vRqw2oOgtSPAt6qNm6PWlbzU0wxLdaGFiXv6sgh0yg2RoY71UpC_gof6CsQG3gFaQ5iMbUr4PGxCS6H-kJPacf5-vevFBfAsCVlXseYNHD81uE4-Vv_OfZig6DdXg5O6zWSd25QMFo230gGZ6UxdGHNjH4CIcOGI4FOsk7JzJ2qKasFjI9PsmIZ9PMzMWZAo73gyDl-UEU-YS9YQcx5LeNlcsN7kNdjYn12LYs_ElzKbH8Fc3z5KMjHi6RIctWWOxj6L6WJgd8gMhZCUAyNoyQ2ZWiwdImTzIH_roNgU_LNtqriFUWjKd00GIxFxQvc8bGcjQD9iOYO1a3C0emR3e__3xRcGpUqwhztTnmEQcvcURrWZN4bsm8fGQCyvePv6gZDIIrpD4A5Z-BbHtx3AU0Gn88cvjiVjKctaN5FUFdc4db1o_704ayXEGIkw7wgr12IkRh07wzfrOB9wYkTM-v2SuB4WI5FfuQVOAzJyXAG2N3qTCXobUAl8A5YTJIHo66iDwqYsGYxKvh52Lqv57Wsu1umHyLW9ewbdfznm0zg5mroDURC_7uPRt1yhJP4PG-np1GImVlTlGiGCa3x-vN-tX5XYhIrrMdyN6CBG0jvU3bPazxcTIx_lMb0m7ZLakVEW2VDpOBFGtYuZarDPkRQxM8XdrpMWgDSXCEGQBObNPK3gnv777ByTQSZl6d5lO-bOcxephXtys1Rxm12qpp2rOW5WwcNSdAbxw-j10gttWQcym6jsZ-QmKrECfhdPIGkyJXL4iyiUa0mjAEvu-yswbxUm98PaqDdzgdTubEczgXU_rTXJt9HQGYplhpHSQX1zJhpVFyWEVRMnlTgd9PgCuulbJ49bAe8FjZr61b-PWKbm1Kfj3CZOmnCB36cTZW4Nt8oO4yk0nvfgPDZX8dTrCXF8XgtKL5Q-Luqnn6hcMzqmgvOzrXky7R68CtI7u5Oeyr81cXA5c3tOFJVtMpqflGsn-SLmdZ9vbtdwWPsg1ocq76ujLPHdW2vYVLvJsbT5aVxK50XvhzZdBN14cSqYjdmvJnFWUAAuGE1M2h-zdlDsLnP9qzWBJ7vUofaXvG2sDuIzdmEi2DpoQgvMqAGlinJea-9dPU7lAmlMtM9BQuxY_b9_I7guQeDl7FBKIq6b194lXIEpDmTN7ZI7.tUyBlEUmzapayjHRu4JRjA"}'
+}
+[2022-06-06T14:21:50.052] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'openWsClient',
+  action: 'Open WebSocket client'
+}
+[2022-06-06T14:21:50.844] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicRegister',
+  action: 'Bob send register request with device ANDROID'
+}
+[2022-06-06T14:21:50.846] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Register apiReq ======> {"callId":"16545145108456979","messageId":"1","source":"Bob@webrtc-dev.restcomm.com","destination":"GW","ts":1654514510846,"type":"Register","body":{"protocolVersion":"1.0","clientVersion":"1.0","appSid":"MCUCostumerSupport","deviceId":"16545145108458531","PNSToken":"65ad3257-8d4d-49f5-ae9a-1835506e5045","deviceType":"ANDROID"}}'
+}
+[2022-06-06T14:21:50.854] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives RegisterAck response'
+}
+[2022-06-06T14:21:51.051] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"GW","callId":"16545145108456979","messageId":"1","action":"Register"}'
+}
+[2022-06-06T14:21:51.196] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"callId":"16545145108456979","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654514511019,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-06T14:21:51.206] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'RegisterAck response <====== {"callId":"16545145108456979","messageId":"0cf6b647-7cf2-4c70-bd0a-8b8f63ce98cb_1","source":"GW","destination":"Bob@webrtc-dev.restcomm.com","ts":1654514511019,"type":"RegisterAck","body":{"requestMessageId":"1","GWVersion":"1.0"}}'
+}
+[2022-06-06T14:21:51.208] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallStart',
+  action: 'Bob start call request'
+}
+[2022-06-06T14:21:51.209] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'Start call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545145108456979","messageId":"2","ts":1654514511209,"type":"Call","body":{"action":"CallStart","reason":"Join","sdp":"v=0\\r\\no=- 14305328 14305328 IN IP4 BC00.ORMSS349.TMOBILEUSA.COM\\r\\ns=- c=IN IP4 10.174.20.152\\r\\nt=0 0\\r\\na=sendrecv\\r\\nm=audio 30462 RTP/AVP 96 97 98 0 99 100 111\\r\\nc=IN IP4 10.174.20.152\\r\\na=rtpmap:96 AMR-WB/16000\\r\\na=fmtp:96 mode-set=0,1,2;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:97 AMR/8000\\r\\na=fmtp:97 mode-set=0,2,4,7;mode-change-period=2;mode-change-capability=2;mode-change-neighbor=1;max-red=0\\r\\na=rtpmap:98 AMR/8000\\r\\na=fmtp:98 mode-set=7;max-red=0\\r\\na=rtpmap:0 PCMU/8000\\r\\na=rtpmap:99 telephone-event/16000\\r\\na=fmtp:99 0-15\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=fmtp:100 0-15\\r\\na=maxptime:40\\r\\na=rtpmap:111 opus/48000/2\\r\\na=rtcp-fb:111 transport-cc\\r\\na=fmtp:111 minptime=10;useinbandfec=1\\r\\n\\r\\n","service":"P2A","accessToken":"access","PNSToken":"c48af8c7-0ff1-4201-a06c-3067711d5864"}}'
+}
+[2022-06-06T14:21:51.210] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Ringing response'
+}
+[2022-06-06T14:21:51.520] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545145108456979","messageId":"2","action":"CallStart"}'
+}
+[2022-06-06T14:21:51.869] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545145108456979","ts":1654514511631,"type":"Call","messageId":"c35fdb3a-2360-4929-9dd9-d311cd305690_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-06T14:21:51.874] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Ringing response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545145108456979","ts":1654514511631,"type":"Call","messageId":"c35fdb3a-2360-4929-9dd9-d311cd305690_2","body":{"action":"CallStatus","requestMessageId":"2","statusCode":"200","description":"Ringing","service":"P2A"}}'
+}
+[2022-06-06T14:21:51.876] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Bob receives Answer response'
+}
+[2022-06-06T14:21:52.065] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545145108456979","ts":1654514511848,"type":"Call","messageId":"c35fdb3a-2360-4929-9dd9-d311cd305690_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654514511767 1 IN IP4 54.158.240.15\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.240.15\\r\\nt=0 0\\r\\nm=audio 59656 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.240.15\\r\\na=sendrecv\\r\\na=rtcp:59657 IN IP4 54.158.240.15\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:3913221952 cname:uOKBZZta005gadIT\\n","service":"P2A"}}'
+}
+[2022-06-06T14:21:52.067] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'waitForResponse',
+  action: 'Answer response <====== {"source":"MCUCostumerSupport@webrtc-dev.restcomm.com","destination":"Bob@webrtc-dev.restcomm.com","callId":"16545145108456979","ts":1654514511848,"type":"Call","messageId":"c35fdb3a-2360-4929-9dd9-d311cd305690_2","body":{"action":"Answer","requestMessageId":"2","sdp":"v=0\\r\\no=- 1654514511767 1 IN IP4 54.158.240.15\\r\\ns=Mobicents Media Server\\r\\nc=IN IP4 54.158.240.15\\r\\nt=0 0\\r\\nm=audio 59656 RTP/AVP 0 100\\r\\nc=IN IP4 54.158.240.15\\r\\na=sendrecv\\r\\na=rtcp:59657 IN IP4 54.158.240.15\\r\\na=ptime:20\\r\\na=rtpmap:0 pcmu/8000\\r\\na=rtpmap:100 telephone-event/8000\\r\\na=ssrc:3913221952 cname:uOKBZZta005gadIT\\n","service":"P2A"}}'
+}
+[2022-06-06T14:21:52.069] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'basicCallEnd',
+  action: 'Bob end call request'
+}
+[2022-06-06T14:21:52.069] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'buildAndSendRequest',
+  action: 'End call apiReq ======> {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545145108456979","messageId":"3","ts":1654514512069,"type":"Call","body":{"action":"Terminate","statusCode":"200","description":"normal","service":"P2A"}}'
+}
+[2022-06-06T14:21:52.252] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client MESSAGE: {"source":"Bob@webrtc-dev.restcomm.com","destination":"MCUCostumerSupport@webrtc-dev.restcomm.com","callId":"16545145108456979","messageId":"3","action":"Terminate"}'
+}
+[2022-06-06T14:21:53.071] [INFO] default - {
+  test: 'happy path - userA send BYE',
+  step: 'closeWsClient',
+  action: 'Close WebSocket client'
+}
+[2022-06-06T14:21:53.077] [DEBUG] default - {
+  test: 'happy path - userA send BYE',
+  step: 'createClient',
+  action: 'WebSocket client CLOSE: {"code":1006,"reason":"","clean":false}'
+}
